@@ -7,7 +7,7 @@ export default class Home extends Component{
 
   render(){
     return (
-      <APPModule />
+      <APPModule {...this.props} />
     );
   }
 }

@@ -3,6 +3,12 @@ const initState = {
     title: '首页',
     link: '/',
   },{
+    title: '博客',
+    link: '/home'
+  },{
+    title: 'example',
+    link: '/example'
+  },{
     title: '关于我',
     link: '/about'
   }]

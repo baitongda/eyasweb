@@ -16,7 +16,7 @@ export default class Navbar extends Component{
           <span className="mdl-layout-title">{this.props.title}</span>
           <div className="mdl-layout-spacer"></div>
           <nav className="mdl-navigation">
-            {data.map(item => <a key={uuid()} className="mdl-navigation__link" href={item.link}>{item.title}</a>)}
+            {data.map(item => <Link key={uuid()} className="mdl-navigation__link" to={item.link}>{item.title}</Link>)}
           </nav>
         </div>
       </header>
