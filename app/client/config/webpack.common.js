@@ -6,17 +6,15 @@ const commonConfig = {
     // root: path.join(__dirname, 'bower_components'),
     extensions: ['', '.js', '.jsx', '.css', '.scss'],
     alias: {
-      client: path.join(__dirname, '..'),
-      vendor: path.join(__dirname, '../vendor'),
+      client: path.join(__dirname, '../'),
       common: path.join(__dirname, '../common'),
       cc: path.join(__dirname, '../common/components'),
       modules: path.join(__dirname, '../modules'),
       utils: path.join(__dirname, '../utils'),
-      framework: path.join(__dirname, '../modules/framework'),
+      fw: path.join(__dirname, '../modules/framework'),
       blog: path.join(__dirname, '../modules/blog'),
       admin: path.join(__dirname, '../modules/admin'),
       auth: path.join(__dirname, '../modules/auth'),
-
       request: path.join(__dirname, '../utils/request'),
 
     }
@@ -72,8 +70,6 @@ const commonConfig = {
     // ),
     // 全局变量
     new webpack.ProvidePlugin({
-      $: 'jquery',
-      jQuery: 'jquery',
       React: 'react',
       ReactDOM: 'react-dom',
       cx: 'classname',

@@ -12,14 +12,18 @@
     "bootstrap": "^3.3.6",
     "font-awesome": "^4.5.0",
     "form-to-obj": "0.0.3",
+    "loaders.css": "^0.1.2",
     "lodash": "^4.3.0",
     "marked": "^0.3.5",
+    "material-design-lite": "^1.1.1",
     "normalize.css": "^3.0.3",
     "react": "^0.14.7",
+    "react-constant": "^2.0.1",
     "react-dom": "^0.14.7",
     "react-redux": "^4.4.0",
     "react-router": "^2.0.0",
     "redux": "^3.3.1",
+    "redux-thunk": "^1.0.3",
     "superagent": "^1.7.2",
     "superagent-defaults": "^0.1.14"
   }
