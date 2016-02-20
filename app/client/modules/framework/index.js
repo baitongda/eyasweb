@@ -21,7 +21,7 @@ export default class FrameWork extends Component{
   render(){
     return (
       <Provider store={store}>
-        <APPModule />
+        <APPModule {...this.props} />
       </Provider>
     );
   }

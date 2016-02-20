@@ -22,7 +22,7 @@ export default class Footer extends Component{
     </div>
     <ul className="mdl-mini-footer__link-list">
       {list.map(item => (
-        <li><a href={item.link}>{item.title}</a></li>
+        <li key={uuid()}><a href={item.link}>{item.title}</a></li>
       ))}
     </ul>
   </div>

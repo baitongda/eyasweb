@@ -11,7 +11,7 @@ export default class APPModule extends Component{
     return (
       <div>
         <Navbar title="Eyas Liu"></Navbar>
-        <h2>Module frame</h2>
+        {this.props.children}
         <Footer></Footer>
       </div>
     );
