@@ -9,6 +9,12 @@ const initState = {
     title: 'example',
     link: '/example'
   },{
+    title: 'Admin',
+    link: '/admin'
+  },{
+    title: 'Login',
+    link: '/auth'
+  },{
     title: '关于我',
     link: '/about'
   }]
