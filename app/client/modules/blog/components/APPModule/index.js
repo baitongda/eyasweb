@@ -1,5 +1,5 @@
 import Brand from '../Brand';
-
+import style from './style';
 @connect(
   state => state.blog
 )
@@ -10,12 +10,15 @@ export default class APPModule extends Component{
   }
 
   render(){
-    const {route, info} = this.props;
+    const {location, info} = this.props;
     return (
       <div>
-        {route.path != '/blog'?'':
+        {location.pathname != '/blog'?'':
           <Brand {...info}></Brand>
         }
+        <div className={style.bloglist}>
+          {this.props.children}
+        </div>
       </div>
     );
   }
