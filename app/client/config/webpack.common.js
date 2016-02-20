@@ -12,7 +12,7 @@ const commonConfig = {
       modules: path.join(__dirname, '../modules'),
       utils: path.join(__dirname, '../utils'),
       fw: path.join(__dirname, '../modules/framework'),
-      home: path.join(__dirname, '../modules/home'),
+      blog: path.join(__dirname, '../modules/blog'),
       example: path.join(__dirname, '../modules/example'),
       admin: path.join(__dirname, '../modules/admin'),
       auth: path.join(__dirname, '../modules/auth'),

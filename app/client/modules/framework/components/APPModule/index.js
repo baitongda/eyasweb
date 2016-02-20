@@ -9,9 +9,11 @@ export default class APPModule extends Component{
 
   render(){
     return (
-      <div>
+      <div className="app-container">
         <Navbar title="Eyas Liu"></Navbar>
-        {this.props.children}
+        <div className="module-container">
+          {this.props.children}
+        </div>
         <Footer></Footer>
       </div>
     );

@@ -4,7 +4,7 @@ const initState = {
     link: '/',
   },{
     title: '博客',
-    link: '/home'
+    link: '/blog'
   },{
     title: 'example',
     link: '/example'
