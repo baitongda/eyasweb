@@ -14,6 +14,7 @@ export default function createStoreWithMiddleware(middlewares = []) {
     return compose(
       ...middlewares,
       ...defaultMiddlewares,
+      window.devToolsExtension ? window.devToolsExtension() : f => f
     )(createStore)(...args);
   };
 }

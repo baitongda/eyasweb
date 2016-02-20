@@ -1,7 +1,5 @@
-function demo(state = {}, action){
-  return state;
-}
+import navbar from './navbar';
 
 export default combineReducers({
-  demo
+  navbar
 });
