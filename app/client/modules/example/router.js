@@ -6,6 +6,6 @@ const appRoute = (
   <Route path='/example' component={App}>
 
   </Route>
-)
+);
 
 export default appRoute;

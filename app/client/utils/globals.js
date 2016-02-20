@@ -23,4 +23,4 @@ window._ = _;
 window.formToObj = formToObj;
 window.Constant = Constant;
 window.Link = Link;
-window.uuid = uuid.v4
+window.uuid = uuid.v4;

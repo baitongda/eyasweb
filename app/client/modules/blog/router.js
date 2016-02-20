@@ -9,6 +9,6 @@ const appRoute = (
     <IndexRoute component={List} />
     <Route path="/blog/:pid" component={Detail} />
   </Route>
-)
+);
 
 export default appRoute;

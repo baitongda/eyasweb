@@ -17,6 +17,6 @@ export default class ListCard extends Component{
      <a className="mdl-button mdl-js-button mdl-button--primary" href="">Read More</a>
   </div>
 </div>
-    )
+    );
   }
 }

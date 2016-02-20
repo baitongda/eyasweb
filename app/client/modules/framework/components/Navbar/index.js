@@ -5,7 +5,7 @@ import style from './style';
 )
 export default class Navbar extends Component{
   static defaultProps = {
-    data:[],
+    data: [],
     title: 'Eyas'
   }
   render(){

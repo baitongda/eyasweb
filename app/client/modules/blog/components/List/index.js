@@ -11,6 +11,6 @@ export default class List extends Component{
   <Item></Item>
   <Item></Item>
 </div>
-    )
+    );
   }
 }

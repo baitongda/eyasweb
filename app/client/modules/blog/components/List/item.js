@@ -7,6 +7,6 @@ export default class Item extends Component{
 <div className={style.list}>
   <ListCard></ListCard>
 </div>
-    )
+    );
   }
 }

@@ -6,6 +6,6 @@ export default class List extends Component{
 <div className={style.detail}>
   <Item></Item>
 </div>
-    )
+    );
   }
 }

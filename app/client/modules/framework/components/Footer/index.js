@@ -3,11 +3,11 @@ import style from './style';
 export default class Footer extends Component{
   static defaultProps = {
     title: 'Eyas',
-    copyright: '© ' + (new Date).getFullYear() +' Eyas Liu.',
+    copyright: '© ' + (new Date).getFullYear() + ' Eyas Liu.',
     list: [{
       title: '首页',
       link: '/',
-    },{
+    }, {
       title: '关于我',
       link: '/about'
     }]

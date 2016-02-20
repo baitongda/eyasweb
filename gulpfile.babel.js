@@ -89,7 +89,8 @@ gulp.task('lint', () => {
         'jQuery': true,
         'ReactDOM': true,
         'cx': true,
-        'config': true
+        'config': true,
+        'Link': true
       }
     }))
     .pipe($.plumber({

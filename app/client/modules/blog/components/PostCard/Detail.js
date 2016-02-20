@@ -20,6 +20,6 @@ export default class DetailCard extends Component{
      <a href="http://en.wikipedia.org/wiki/Sky_Tower_%28Auckland%29">Wikipedia entry</a>
   </div>
 </div>
-    )
+    );
   }
 }

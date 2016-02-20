@@ -6,14 +6,13 @@ import style from './style';
 export default class APPModule extends Component{
   constructor(props){
     super();
-    console.log(props);
   }
 
   render(){
     const {location, info} = this.props;
     return (
       <div>
-        {location.pathname != '/blog'?'':
+        {location.pathname != '/blog' ? '' :
           <Brand {...info}></Brand>
         }
         <div className={style.bloglist}>
