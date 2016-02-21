@@ -8,7 +8,9 @@ export default class Edit extends Component{
   render(){
     return (
       <div>
-        <h2>App Module</h2>
+        <form action="">
+          <TextField></TextField>
+        </form>
       </div>
     );
   }

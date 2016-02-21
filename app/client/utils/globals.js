@@ -11,7 +11,6 @@ import uuid from 'node-uuid';
 
 // 全局工具
 // window.util = require('utils/utily');
-window.Loding = require('cc/loading/index');
 window.combineReducers = combineReducers;
 window.bindActionCreators = bindActionCreators;
 window.compose = compose;
@@ -24,3 +23,8 @@ window.formToObj = formToObj;
 window.Constant = Constant;
 window.Link = Link;
 window.uuid = uuid.v4;
+
+// global component
+window.Loding = require('cc/loading/index')['default'];
+window.Checkbox = require('cc/Form/Checkbox')['default'];
+window.TextField = require('cc/Form/TextField')['default'];

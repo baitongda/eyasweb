@@ -1,4 +1,4 @@
-
+import style from './style';
 
 export default class APPModule extends Component{
   constructor(){
@@ -7,8 +7,8 @@ export default class APPModule extends Component{
 
   render(){
     return (
-      <div>
-        <h2>App Module</h2>
+      <div className={style.admin}>
+        {this.props.children}
       </div>
     );
   }
