@@ -28,3 +28,5 @@ window.uuid = uuid.v4;
 window.Loding = require('cc/loading/index')['default'];
 window.Checkbox = require('cc/Form/Checkbox')['default'];
 window.TextField = require('cc/Form/TextField')['default'];
+window.TextArea = require('cc/Form/TextArea')['default'];
+window.Select = require('cc/Form/Select')['default'];

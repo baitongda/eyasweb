@@ -1,6 +1,6 @@
 import style from './style.scss';
 
-export default class TextFiled extends Component{
+export default class TextArea extends Component{
   constructor(props){
     super();
   }
@@ -20,8 +20,8 @@ export default class TextFiled extends Component{
   ref="mdl" 
   style={{width: width == 'auto' || ('' + width).indexOf('%') ? width : width + 'px'}} 
   className={cx("mdl-textfield mdl-js-textfield mdl-textfield--floating-label", style.text)}>
-  <input className="mdl-textfield__input" type="text" value={this.props.value} />
-  <label className="mdl-textfield__label" htmlFor="sample3">{this.props.label}</label>
+  <textarea className="mdl-textfield__input" type="text" rows= "3" >{this.props.value}</textarea>
+  <label className="mdl-textfield__label" htmlFor={this.props.label}>{this.props.label}</label>
 </div>
     );
   }

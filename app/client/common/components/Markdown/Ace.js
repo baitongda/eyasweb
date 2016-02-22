@@ -18,7 +18,6 @@ export default class Markdown extends React.Component {
   };
 
   handlerChange(val) {
-    console.log(val);
     this.props.changeText(val);
     this.refs.textarea.value = val;
   }

@@ -1,4 +1,4 @@
-
+import Markdown from 'cc/Markdown';
 
 export default class Edit extends Component{
   constructor(){
@@ -9,7 +9,9 @@ export default class Edit extends Component{
     return (
       <div>
         <form action="">
-          <TextField></TextField>
+          <TextField label="标题" />
+          <Select label="分类" multi options={[{label: 'eyas', value:'eyas'}]} />
+          <Markdown />
         </form>
       </div>
     );
