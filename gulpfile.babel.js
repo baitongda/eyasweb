@@ -67,7 +67,10 @@ gulp.task('build', ['clean'], ()=>{
     if(err){
       console.error(err);
     }else{
-      console.log('build success!!!');
+      console.log(stats.toString({
+        colors: true,
+        chunks: false
+      }));
       setHash(stats.hash);
     }
   });

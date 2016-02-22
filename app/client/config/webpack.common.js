@@ -75,10 +75,6 @@ const commonConfig = {
       ReactDOM: 'react-dom',
       cx: 'classname',
       config: path.join(__dirname, './config')
-    }),
-    new webpack.DefinePlugin({
-      VERSION: '0.0.0'
-
     })
   // css 文件单独打包
   // new ExtractTextPlugin('style.css', {

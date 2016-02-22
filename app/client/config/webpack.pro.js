@@ -32,6 +32,10 @@ module.exports = {
         warnings: false
       },
       comments: false
+    }),
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': '"production"',
+      'process.env.BABEL_ENV': '"production"'
     })
   ]
 };
