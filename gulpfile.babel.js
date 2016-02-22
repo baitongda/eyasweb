@@ -28,11 +28,6 @@ gulp.task('server', () => {
   gulp.watch(['./app/server/**/*.js', '!./app/server/node_modules/**/*'], () => {
     backendServer.restart();
   });
-
-  // 不能同时执行两个 nodemon 任务，只能如此取巧
-  exec('gulp mock', {}, (err, out) => {
-    console.log(out);
-  });
 });
 
 
@@ -82,17 +77,7 @@ gulp.task('build', ['clean'], ()=>{
 // console.log(notifier);
 gulp.task('lint', () => {
   return gulp.src(['./*.js', 'app/client/**/*.js', 'app/client/**/*.jsx', '!app/client/vendor/**/*', '!app/**/node_modules/**/*'])
-    .pipe($.eslint({
-      globals: {
-        'React': true,
-        '$': true,
-        'jQuery': true,
-        'ReactDOM': true,
-        'cx': true,
-        'config': true,
-        'Link': true
-      }
-    }))
+    .pipe($.eslint())
     .pipe($.plumber({
       errorHandler(err) {
         const { fileName, lineNumber, message } = err;
@@ -107,3 +92,18 @@ gulp.task('lint', () => {
     .pipe($.eslint.failOnError())
     .pipe($.eslint.formatEach());
 });
+
+function setHash(hash){
+  fs.readFile('./index.html', (err, data) => {
+    const jQuery = cheerio.load(data.toString());
+    const pathScript = '/build/app.js?hash=' + hash;
+    jQuery('script').attr('src', pathScript);
+    fs.writeFile('./index.html', jQuery.html(), fileErr => {
+      if(fileErr){
+        console.error(fileErr);
+      }else{
+        console.log('Hash set success: ', hash);
+      }
+    });
+  });
+}
