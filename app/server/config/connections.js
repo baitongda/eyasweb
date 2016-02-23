@@ -1,3 +1,4 @@
+import path from 'path';
 /**
  * Connections
  * (sails.config.connections)
@@ -18,8 +19,14 @@
  * For more information on configuration, check out:
  * http://sailsjs.org/#!/documentation/reference/sails.config/sails.config.connections.html
  */
-
 module.exports.connections = {
+
+  sqlitedb: {
+    adapter: 'waterline-sqlite3',
+    type: 'disk',
+    filename: path.join(__dirname, './database/eyasweb.sqlite'),
+    debug: false
+  },
 
   /***************************************************************************
   *                                                                          *
