@@ -13,8 +13,19 @@ import webpackProConfig from './app/client/config/webpack.pro.js';
 import config from './app/client/config/config';
 import fs from 'fs';
 import cheerio from 'cheerio';
+import forever from 'forever';
+import {Monitor} from 'forever-monitor';
 
 const $ = require('gulp-load-plugins')();
+
+gulp.task('deploy', () => {
+  const child = new Monitor('./app/server/app.js', {
+    max: 3,
+    silent: true
+  });
+
+  forever.startServer(child);
+});
 
 // server auto reload
 gulp.task('server', () => {
@@ -63,6 +74,8 @@ gulp.task('clean', () => {
 
 // build
 gulp.task('build', ['clean'], ()=>{
+  process.env.NODE_ENV = 'production';
+  console.log(process.env);
   const compiler = webpack(webpackProConfig, (err, stats) => {
     if(err){
       console.error(err);

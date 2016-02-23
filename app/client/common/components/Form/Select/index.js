@@ -6,14 +6,14 @@ export default class Select extends Component{
     super();
     this.state = {
       value: props.value
-    }
+    };
   }
 
   onChange(val){
     this.setState({
       value: val
     });
-    this.props.onChange && this.props.onChange(val)
+    this.props.onChange && this.props.onChange(val);
   }
 
   render(){
@@ -24,6 +24,6 @@ export default class Select extends Component{
         value={this.state.value}
         onChange={::this.onChange}
       />
-    )
+    );
   }
 }
