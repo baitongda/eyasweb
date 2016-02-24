@@ -19,7 +19,7 @@ module.exports = {
     expect: {
       type: 'text',
       defaultsTo: '',
-    }
+    },
     content: {
       type: 'text',
       defaultsTo: ''
