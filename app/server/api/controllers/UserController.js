@@ -11,21 +11,45 @@ module.exports = {
       if(err){
         return res.badRequest(err);
       }
-      res.json(users);
-    })
+      return res.json(users);
+    });
   },
-  create(req, res){
-    User.create({
-      username: 'yuesong',
-      password: 'eeeeeee',
-      email: 'liuyuesongd@163.com'
-    }).exec((err, user) => {
-      console.log(user)
+  findOne(req, res){
+    const id = req.param('id');
+    id ? User.findOne({id}).exec((err, user) => {
       if(err){
         return res.badRequest(err);
       }
-      res.json(user);
+      return res.json(user);
+    }) : res.badRequest({message: 'must have id param'});
+  },
+  create(req, res){
+    User.create({...req.body}).exec((err, user) => {
+      if(err)return res.badRequest(err);
+      return res.json(user);
     })
+  },
+  update(req, res){
+    const id = req.param('id');
+    id ? User.findOne({id}).exec((err, user) => {
+      if(err) return res.badRequest(err);
+      let afterUser = {
+        ...user,
+        ...req.body
+      };
+      console.log(req.body, afterUser);
+      User.update({id}, afterUser).exec((err, user) => {
+        if(err) return res.badRequest(err);
+        return res.json(_.first(user));
+      })
+    }) : res.badRequest({message: 'must have id param'})
+  },
+  destroy(req, res){
+    const id = req.param('id');
+    id ? User.destroy({id}).exec((err, user) => {
+      if(err) return res.badRequest(err);
+      return res.json(_.first(user));
+    }) : res.badRequest({message: 'must have id param'})
   }
 };
 

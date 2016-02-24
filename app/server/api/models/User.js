@@ -21,7 +21,7 @@ module.exports = {
     password: {
       type: 'string',
       required: true,
-      unique: true
+      protected: true
     },
     email: {
       type: 'string',
@@ -31,5 +31,9 @@ module.exports = {
     description: {
       type: 'text'
     }
+  },
+  beforeCreate(values, cb){
+    values.password = Encrypt.hash(values.password);
+    cb();
   }
 }
