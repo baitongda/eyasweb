@@ -20,6 +20,12 @@ module.exports = {
     displayName: {
       type: 'string'
     }
+  },
+  beforeCreate(values, cb){
+    if(!values.name) throw new Error('Tag name required!');
+    values.slug = values.slug || values.name;
+    values.displayName = values.displayName || values.name;
+    cb();
   }
 };
 

@@ -7,6 +7,7 @@
 
 module.exports = {
 	find(req, res){
+    console.log(sails.models.post === Post);
     Post.find().populate('author').exec((err, posts) => {
       if(err){
         return res.badRequest(err);

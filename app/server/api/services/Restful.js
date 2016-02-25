@@ -8,12 +8,12 @@
  * 
  */
 module.exports = function Restful(modelID){
-  const Model = sails.models[modelID.toLocaleLowerCase()];
-  if(!Model) throw new Error('No the modelID');
+  const modelName = modelID.toLocaleLowerCase()
+  if(!sails.models[modelName]) throw new Error('No the modelID');
 
   return {
     find(req, res){
-      console.log('find method');
+      const Model = sails.models[modelName];
       Model.find().exec((err, users) => {
         if(err){
           return res.badRequest(err);
@@ -22,6 +22,7 @@ module.exports = function Restful(modelID){
       });
     },
     findOne(req, res){
+      const Model = sails.models[modelName];
       const id = req.param('id');
       id ? Model.findOne({id}).exec((err, user) => {
         if(err){
@@ -31,12 +32,14 @@ module.exports = function Restful(modelID){
       }) : res.badRequest({message: 'must have id param'});
     },
     create(req, res){
+      const Model = sails.models[modelName];
       Model.create({...req.body}).exec((err, user) => {
         if(err)return res.badRequest(err);
         return res.json(user);
       })
     },
     update(req, res){
+      const Model = sails.models[modelName];
       const id = req.param('id');
       id ? Model.findOne({id}).exec((err, user) => {
         if(err) return res.badRequest(err);
@@ -52,6 +55,7 @@ module.exports = function Restful(modelID){
       }) : res.badRequest({message: 'must have id param'})
     },
     destroy(req, res){
+      const Model = sails.models[modelName];
       const id = req.param('id');
       id ? Model.destroy({id}).exec((err, user) => {
         if(err) return res.badRequest(err);
