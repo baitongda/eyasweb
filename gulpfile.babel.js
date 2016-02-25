@@ -27,7 +27,9 @@ gulp.task('deploy', () => {
   forever.startServer(child);
 });
 
-// server auto reload
+
+
+// server port auto reload
 gulp.task('server', () => {
   const backendServer = nodemon({
     script: './app/server/app.js',
