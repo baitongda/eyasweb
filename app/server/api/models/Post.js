@@ -37,8 +37,8 @@ module.exports = {
       defaultsTo: []
     },
     tags: {
-      type: 'array',
-      defaultsTo: []
+      collection: 'tags',
+      via: 'tag'
     }
 
   }

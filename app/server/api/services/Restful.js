@@ -8,13 +8,14 @@
  * 
  */
 module.exports = function Restful(modelID){
-  const modelName = modelID.toLocaleLowerCase()
+  const modelName = modelID.toLocaleLowerCase();
   if(!sails.models[modelName]) throw new Error('No the modelID');
-
+  const models = getModel(sails.models[modelName].attributes);
   return {
     find(req, res){
       const Model = sails.models[modelName];
-      Model.find().exec((err, users) => {
+      // console.log(models, Model);
+      Model.find().populate(models).exec((err, users) => {
         if(err){
           return res.badRequest(err);
         }
@@ -24,7 +25,7 @@ module.exports = function Restful(modelID){
     findOne(req, res){
       const Model = sails.models[modelName];
       const id = req.param('id');
-      id ? Model.findOne({id}).exec((err, user) => {
+      id ? Model.findOne({id}).populate(models).exec((err, user) => {
         if(err){
           return res.badRequest(err);
         }
@@ -41,7 +42,7 @@ module.exports = function Restful(modelID){
     update(req, res){
       const Model = sails.models[modelName];
       const id = req.param('id');
-      id ? Model.findOne({id}).exec((err, user) => {
+      id ? Model.findOne({id}).populate(models).exec((err, user) => {
         if(err) return res.badRequest(err);
         let afterUser = {
           ...user,
@@ -63,4 +64,12 @@ module.exports = function Restful(modelID){
       }) : res.badRequest({message: 'must have id param'})
     }
   }
+}
+
+function getModel(attrs){
+  var models = [];
+  _.each(attrs, (field, key) => {
+    field['model'] && models.push(key);
+  });
+  return models;
 }

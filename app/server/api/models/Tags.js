@@ -19,6 +19,9 @@ module.exports = {
     },
     displayName: {
       type: 'string'
+    },
+    tag: {
+      model: 'post'
     }
   },
   beforeCreate(values, cb){
