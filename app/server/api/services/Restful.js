@@ -4,7 +4,7 @@
  * @param {model} Model 对应的model
  *
  * example：
- * const mixin = new Restful(User)
+ * module.exports = Restful(User)
  * 
  */
 module.exports = function Restful(modelID){
