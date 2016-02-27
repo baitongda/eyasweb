@@ -10,7 +10,8 @@ import 'script!material-design-lite';
 import uuid from 'node-uuid';
 
 // 全局工具
-// window.util = require('utils/utily');
+window.util = require('utils/utily')['default'];
+window.config = require('client/config/config');
 window.combineReducers = combineReducers;
 window.bindActionCreators = bindActionCreators;
 window.compose = compose;
@@ -25,7 +26,7 @@ window.Link = Link;
 window.uuid = uuid.v4;
 
 // global component
-window.Loding = require('cc/loading/index')['default'];
+window.Loading = require('cc/loading/index')['default'];
 window.Checkbox = require('cc/Form/Checkbox')['default'];
 window.TextField = require('cc/Form/TextField')['default'];
 window.TextArea = require('cc/Form/TextArea')['default'];
