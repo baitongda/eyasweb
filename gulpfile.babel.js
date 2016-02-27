@@ -41,11 +41,13 @@ gulp.task('server', () => {
   const backendServer = nodemon({
     script: './app/server/app.js',
     ignore: [
-      "./**/*"
-    ]
+      "/**/*"
+    ],
+    watch: []
   });
 
-  gulp.watch(['./app/server/**/*.js', '!./app/server/node_modules/**/*'], () => {
+  gulp.watch(['./app/server/**/*.js', '!./app/server/node_modules/**/*', '!app/client/**/*'], () => {
+    console.log('gulp restart server');
     backendServer.restart();
   });
 });
