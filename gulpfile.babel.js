@@ -18,6 +18,13 @@ import {Monitor} from 'forever-monitor';
 
 const $ = require('gulp-load-plugins')();
 
+/**
+ * 同时启动前后端服务
+ */
+gulp.task('dev', ['server', 'client']);
+
+
+
 gulp.task('deploy', () => {
   const child = new Monitor('./app/server/app.js', {
     max: 3,
