@@ -4,7 +4,7 @@ export default class List extends Component{
   render(){
     return (
 <div className={style.detail}>
-  <Item></Item>
+  <Item {...this.props}></Item>
 </div>
     );
   }
