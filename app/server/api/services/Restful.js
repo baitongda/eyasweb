@@ -66,6 +66,8 @@ module.exports = function Restful(modelID){
   }
 }
 
+
+
 function getModel(attrs){
   var models = [];
   _.each(attrs, (field, key) => {
@@ -73,3 +75,4 @@ function getModel(attrs){
   });
   return models;
 }
+

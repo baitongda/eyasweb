@@ -15,7 +15,7 @@
  * For more information on configuring policies, check out:
  * http://sailsjs.org/#!/documentation/reference/sails.config/sails.config.policies.html
  */
-
+import _ from 'lodash';
 
 module.exports.policies = {
 
@@ -51,5 +51,16 @@ module.exports.policies = {
   AuthController: {
     login: ['localAuth'],
     logout: ['jwt'],
-  }
+  },
+  PostController: restPolicies(),
+  TagsController: restPolicies(),
+  UserController: restPolicies(['find', 'findOne','create', 'update', 'destory'])
 };
+
+function restPolicies(methodName = ['create', 'update', 'destory']){
+  const policies = {};
+  _.each(methodName, name => {
+    policies[name] = ['JWT'];
+  })
+  return policies;
+}
