@@ -11,7 +11,7 @@ module.exports = {
     commit: 'string',
     title: 'string',
     ref: 'string',
-    hook: 'string',
+    hook: 'string'
   }
 };
 
