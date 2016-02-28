@@ -12,7 +12,7 @@ export class Title extends Component{
   render(){
     return (
 <div className="mdl-card__title">
-     <h2 {...this.props} className={cx("mdl-card__title-text", this.props.className)}></h2>
+     <div {...this.props} className={cx("mdl-card__title-text", this.props.className)}></div>
 </div>
     );
   }

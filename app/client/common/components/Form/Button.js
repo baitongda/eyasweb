@@ -18,6 +18,6 @@ export default class Button extends Component{
         ...this.props,
         className: cx(styles, this.props.className)
       }
-    )
+    );
   }
 }

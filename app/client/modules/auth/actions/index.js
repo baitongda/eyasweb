@@ -1,9 +1,9 @@
 const constant = Constant('auth');
 
-export function login(data){
+export function login(formdata){
   return dispatch => {
     request.post(config.server + '/login')
-      .send(data)
+      .send(formdata)
       .end((err, res) => {
         const data = res.body;
         if(data.token){
@@ -17,8 +17,8 @@ export function login(data){
           dispatch({
             type: constant.Message,
             data
-          })
+          });
         }
-      })
-  }
+      });
+  };
 }

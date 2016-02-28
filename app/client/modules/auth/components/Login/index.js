@@ -39,13 +39,13 @@ export default class Login extends Component{
           </Card.Footer>
         </Card>
         <div className={style.message} ref="message">
-          { !this.props.message? '' :
+          { !this.props.message ? '' :
               <div className={style.messageInner}>
                 {this.props.message}
               </div>
           }
         </div>
       </form>
-    )
+    );
   }
 }

@@ -4,18 +4,14 @@ export default class DetailCard extends Component{
   render(){
     const {data} = this.props;
     return (
-<div className={cx("mdl-card", "mdl-shadow--2dp", style.card, style. list)}>
-  <div className="mdl-card__title">
-     <p className="mdl-card__title-text">{data.title}</p>
-  </div>
-  <div className="mdl-card__media">
-    
-  </div>
-  <div className="mdl-card__supporting-text" dangerouslySetInnerHTML={{__html: marked(data.content)}}></div>
-  <div className="mdl-card__actions">
-     
-  </div>
-</div>
+<Card className={cx("content", "mdl-shadow--2dp", style.card, style. list)}>
+  <Card.Title className="header">
+    <h1 className="mdl-card__title-text">{data.title}</h1>
+  </Card.Title>
+  <Card.Content className="markdown-body">
+    <div dangerouslySetInnerHTML={{__html: marked(data.content)}}></div>
+  </Card.Content>
+</Card>
     );
   }
 }
