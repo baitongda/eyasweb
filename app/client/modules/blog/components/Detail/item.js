@@ -9,7 +9,8 @@ import {getPost} from '../../actions/detail';
 export default class Item extends Component{
   constructor(props){
     super();
-    const pid = props.params.pid
+    const pid = props.params.pid;
+
     props.getPost(pid);
 
     let {posts, data} = props;
@@ -19,11 +20,10 @@ export default class Item extends Component{
 
     this.state = {
       data
-    }
+    };
   }
 
   componentWillReceiveProps(nextProps){
-    console.log('will update')
     if(nextProps.params.pid == nextProps.data.id){
       this.setState({
         data: nextProps.data

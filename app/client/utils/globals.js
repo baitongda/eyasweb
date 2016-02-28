@@ -1,5 +1,5 @@
 import {combineReducers, bindActionCreators, compose} from 'redux';
-import {Link} from 'react-router';
+import {Link, browserHistory} from 'react-router';
 import {connect} from 'react-redux';
 import request from './request';
 import {PropTypes, Component} from 'react';
@@ -23,7 +23,8 @@ window._ = _;
 window.formToObj = formToObj;
 window.Constant = Constant;
 window.Link = Link;
-window.uuid = uuid.v4;
+window.uuid = uuid;
+window.History = browserHistory;
 
 // global component
 window.Loading = require('cc/loading/index')['default'];
