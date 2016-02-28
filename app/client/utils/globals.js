@@ -34,3 +34,5 @@ window.Checkbox = require('cc/Form/Checkbox')['default'];
 window.TextField = require('cc/Form/TextField')['default'];
 window.TextArea = require('cc/Form/TextArea')['default'];
 window.Select = require('cc/Form/Select')['default'];
+window.Button = require('cc/Form/Button')['default'];
+window.Card = require('cc/Card')['default'];
