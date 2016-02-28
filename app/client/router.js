@@ -5,7 +5,7 @@ import Framework from 'fw';
 import BlogRouter from 'blog/router';
 import ExampleRouter from 'example/router';
 import AdminRouter from 'admin/router';
-// import AuthRouter from 'auth/router';
+import AuthRouter from 'auth/router';
 import Index from 'blog';
 
 const APPRouter = (
@@ -14,6 +14,7 @@ const APPRouter = (
       {BlogRouter}
       {ExampleRouter}
       {AdminRouter}
+      {AuthRouter}
       <IndexRoute component={Index} />
     </Route>
   </Router>
