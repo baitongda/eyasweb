@@ -57,6 +57,11 @@ module.exports.policies = {
   UserController: restPolicies(['find', 'findOne','create', 'update', 'destory'])
 };
 
+/**
+ * restful 控制器的policies规则生成器
+ * @param  {array}  methodName 要引用登陆的控制器
+ * @return {object}            该文件可用的规则列表
+ */
 function restPolicies(methodName = ['create', 'update', 'destory']){
   const policies = {};
   _.each(methodName, name => {

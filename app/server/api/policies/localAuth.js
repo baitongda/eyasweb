@@ -1,7 +1,10 @@
 import passport from 'passport';
 import {Strategy as LocalStrategy} from 'passport-local';
 
-
+/**
+ * 根据用户名密码验证是否登录成功
+ * 如果登录成功则返回 JWT token
+ */
 function strategy(username, password, done){
   // console.log('local auth:',username, password);
   User
@@ -35,8 +38,5 @@ passport.use(new LocalStrategy({
 },strategy));
 
 module.exports = function(req, res, next){
-  // console.log('next: ', next)
   next();
-  // console.log('next: ', next)
-
 }

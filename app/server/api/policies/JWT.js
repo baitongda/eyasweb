@@ -1,21 +1,10 @@
 import passport from 'passport';
 import {Strategy as JwtStrategy, ExtractJwt} from 'passport-jwt';
 
-// passport.serializeUser(function(user, done) {
-//   done(null, user.id);
-// });
-
-// passport.deserializeUser(function(id, done) {
-//   User.findOne({id}, function(err, user) {
-//     done(err, user);
-//   });
-// });
-
-
-
-
+/**
+ * passport 验证策略
+ */
 function strategy(payload, done){
-  console.log('payload',payload);
   User
   .findOne({username: payload.username})
   .exec((err, user) => {
@@ -41,6 +30,11 @@ passport.use(new JwtStrategy({
 
 
 module.exports = function(req,res,next){
+  /**
+   * 根据token验证该用户是否已经登录
+   * 如果登录则正常返回
+   * 如果未登录则返回401并阻止请求
+   */
   passport.authenticate('jwt', { session: false}, (err, user, info) => {
     if(err || !user){
       return res.unauth({
