@@ -32,9 +32,13 @@ export default class Item extends Component{
   }
 
   render(){
+    const {data} = this.state;
     return (
 <div className={style.list}>
-  <DetailCard {...this.props} data={this.state.data}></DetailCard>
+  { 
+    !data.id ? <Loading></Loading> :
+    <DetailCard {...this.props} data={this.state.data}></DetailCard>
+  }
 </div>
     );
   }

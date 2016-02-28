@@ -1,5 +1,10 @@
 import style from './style';
+import {deletePost} from '../../actions/list';
 
+@connect(
+  null,
+  dispatch => bindActionCreators({deletePost}, dispatch)
+)
 export default class List extends Component{
   constructor(){
     super();
@@ -21,7 +26,7 @@ export default class List extends Component{
           <Link to={"/admin/" + data.id} className="mdl-button mdl-js-button mdl-button--icon">
             <i className="fa fa-edit"></i>
           </Link>
-          <button className="mdl-button mdl-js-button mdl-button--icon">
+          <button onClick={e => this.props.deletePost(data.id)} className="mdl-button mdl-js-button mdl-button--icon">
             <i className="fa fa-trash"></i>
           </button>
         </td>

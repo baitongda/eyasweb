@@ -1,4 +1,5 @@
 import {combineReducers, bindActionCreators, compose} from 'redux';
+import marked from './marked';
 import {Link, browserHistory} from 'react-router';
 import {connect} from 'react-redux';
 import request from './request';
@@ -12,6 +13,7 @@ import uuid from 'node-uuid';
 // 全局工具
 window.util = require('utils/utily')['default'];
 window.config = require('client/config/config');
+window.marked = marked;
 window.combineReducers = combineReducers;
 window.bindActionCreators = bindActionCreators;
 window.compose = compose;

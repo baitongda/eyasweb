@@ -11,3 +11,15 @@ export function getList(){
       });
   };
 }
+
+export function deletePost(id){
+  return dispatch => {
+    request.delete(config.server + '/post/' + id)
+      .end((err, res) => {
+        dispatch({
+          type: constant.DeletePost,
+          data: res.body
+        })
+      })
+  }
+}

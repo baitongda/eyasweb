@@ -11,7 +11,7 @@ export default class DetailCard extends Component{
   <div className="mdl-card__media">
     
   </div>
-  <div className="mdl-card__supporting-text" dangerouslySetInnerHTML={{__html: data.content}}></div>
+  <div className="mdl-card__supporting-text" dangerouslySetInnerHTML={{__html: marked(data.content)}}></div>
   <div className="mdl-card__actions">
      
   </div>

@@ -8,19 +8,26 @@ import * as actions from '../../actions/edit';
 export default class Edit extends Component{
   constructor(props){
     super();
-    const pid = props.params.pid;
-    let {posts, data} = props;
-    if(data.id != pid){
-      data = {};
+    const isNew = props.route.path == '/admin/new';
+    let data = {};
+    if(!isNew){
+      const pid = props.params.pid;
+      let {posts} = props;
+      data = props.data;
+      if(data.id != pid){
+        data = {};
+      }
+      props.getPost(pid);
     }
-    props.getPost(pid);
+    
     this.state = {
-      data
+      data,
+      isNew
     };
   }
 
   componentWillReceiveProps(nextProps){
-    if(nextProps.params.pid == nextProps.data.id){
+    if((nextProps.params.pid == nextProps.data.id) && !this.state.isNew){
       this.setState({
         data: nextProps.data
       });

@@ -11,6 +11,14 @@ export default function list(state = initState, action){
         ...state,
         data: action.data
       };
+    case constant.of('DeletePost'):
+      _.remove(state.data, item => item.id == action.data.id);
+      return {
+        ...state,
+        data: [
+          ...state.data
+        ]
+      }
     default:
       return state;
   }

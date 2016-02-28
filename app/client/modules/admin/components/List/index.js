@@ -18,7 +18,7 @@ export default class List extends Component{
       <div>
         <Link className="mdl-button mdl-js-button mdl-button--raised mdl-button--primary" to="/admin/new">新建文章</Link>
         {
-          !data.length? <Loading></Loading> :
+          !data.length ? <Loading></Loading> :
           <table className={cx("mdl-data-table mdl-js-data-table mdl-shadow--2dp", style.table)}>
             <thead>
               <tr>
