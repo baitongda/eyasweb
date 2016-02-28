@@ -1,6 +1,6 @@
 const constant = Constant('auth');
 const initState = {
-  isLogin: false,
+  isLogin: !!sessionStorage.getItem('auth'),
   token: 'none',
   message: ''
 };

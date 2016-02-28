@@ -1,8 +1,19 @@
 import style from './style';
 
+@connect(
+  state => {
+    return {
+      isLogin: state.auth.isLogin
+    }
+  }
+)
 export default class APPModule extends Component{
-  constructor(){
+  constructor(props){
     super();
+    if(!props.isLogin){
+      History.push('/');
+      return false;
+    }
   }
 
   render(){
