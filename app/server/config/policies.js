@@ -54,7 +54,7 @@ module.exports.policies = {
   },
   PostController: restPolicies(),
   TagsController: restPolicies(),
-  UserController: restPolicies(['find', 'findOne','create', 'update', 'destory'])
+  UserController: restPolicies(['find', 'findOne','create', 'update', 'destroy'])
 };
 
 /**
@@ -62,7 +62,7 @@ module.exports.policies = {
  * @param  {array}  methodName 要引用登陆的控制器
  * @return {object}            该文件可用的规则列表
  */
-function restPolicies(methodName = ['create', 'update', 'destory']){
+function restPolicies(methodName = ['create', 'update', 'destroy']){
   const policies = {};
   _.each(methodName, name => {
     policies[name] = ['JWT'];
