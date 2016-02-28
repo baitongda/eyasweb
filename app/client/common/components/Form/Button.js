@@ -4,18 +4,20 @@ export default class Button extends Component{
   }
 
   static defaultProps = {
-    mdl: []
+    mdl: [],
+    tag: 'button'
   }
 
   render(){
     const styles = ['mdl-button', 'mdl-js-button'];
-    _.each(this.props.mdl, (val, key) => {
-      if(key !== 'children'){
-        styles.push('mdl-button--' + key);
-      }
+    _.each(this.props.mdl, item => {
+      styles.push('mdl-button--' + item);
     });
-    return (
-      <button {...this.props} className={cx(styles, this.props.className)}></button>
-    );
+    return React.createElement(this.props.tag, 
+      {
+        ...this.props,
+        className: cx(styles, this.props.className)
+      }
+    )
   }
 }

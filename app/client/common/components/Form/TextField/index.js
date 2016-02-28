@@ -8,11 +8,12 @@ export default class TextFiled extends Component{
     };
   }
   static defaultProps = {
-    value: ' ',
+    value: '',
     label: '',
     checked: false,
     onChange: () => {},
-    width: '100%'
+    width: '100%',
+    type: "text"
   }
 
   changeHandler(e){
@@ -37,7 +38,7 @@ export default class TextFiled extends Component{
   ref="mdl" 
   style={{width: width == 'auto' || ('' + width).indexOf('%') ? width : width + 'px'}} 
   className={cx("mdl-textfield mdl-js-textfield mdl-textfield--floating-label", style.text)}>
-  <input className="mdl-textfield__input" name={this.props.name} onChange={::this.changeHandler} type="text" value={this.state.value} />
+  <input className="mdl-textfield__input" name={this.props.name} onChange={::this.changeHandler} type={this.props.type} value={this.state.value} />
   <label className="mdl-textfield__label" htmlFor="sample3">{this.props.label}</label>
 </div>
     );

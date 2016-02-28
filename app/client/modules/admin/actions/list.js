@@ -19,7 +19,7 @@ export function deletePost(id){
         dispatch({
           type: constant.DeletePost,
           data: res.body
-        })
-      })
-  }
+        });
+      });
+  };
 }

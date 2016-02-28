@@ -1,9 +1,8 @@
 const constant = Constant('adminList');
-
-
 const initState = {
   data: []
 };
+
 export default function list(state = initState, action){
   switch(action.type){
     case constant.of('GetList'):
@@ -18,7 +17,7 @@ export default function list(state = initState, action){
         data: [
           ...state.data
         ]
-      }
+      };
     default:
       return state;
   }
