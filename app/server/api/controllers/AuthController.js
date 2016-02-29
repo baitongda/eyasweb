@@ -16,7 +16,8 @@ module.exports = {
       }
       return res.json({
         message: info.message,
-        token: Jwt.encode(user.username)
+        token: Jwt.encode(user.username),
+        user
       })
     })(req, res);
     // console.log('login')

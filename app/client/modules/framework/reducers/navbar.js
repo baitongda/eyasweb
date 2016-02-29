@@ -11,10 +11,10 @@ const initState = {
   //   title: 'example',
   //   link: '/example'
   // }, 
-  // {
-  //   title: 'Admin',
-  //   link: '/admin'
-  // }, 
+   {
+     title: 'Admin',
+     link: '/admin'
+   }, 
   {
     title: 'Login',
     link: '/auth'
@@ -25,6 +25,11 @@ const initState = {
   // }
   ]
 };
+if(sessionStorage.getItem('auth')){
+  _.remove(initState.data, item => item.link == '/auth');
+} else {
+  _.remove(initState.data, item => item.link == '/admin');
+}
 
 export default function navbar(state = initState, action){
   switch(action.type){
