@@ -4,7 +4,7 @@ import style from './style';
   state => {
     return {
       isLogin: state.auth.isLogin
-    }
+    };
   }
 )
 export default class APPModule extends Component{
@@ -12,7 +12,6 @@ export default class APPModule extends Component{
     super();
     if(!props.isLogin){
       History.push('/');
-      return false;
     }
   }
 

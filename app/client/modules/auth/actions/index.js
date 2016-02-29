@@ -14,11 +14,11 @@ export function login(formdata){
           navbar.data.push({
             title: '管理面板',
             link: '/admin'
-          })
+          });
           dispatch({
             type: Constant('navbar').ChangeNavbar,
             data: navbar.data
-          })
+          });
           // 登录成功
           dispatch({
             type: constant.Login,

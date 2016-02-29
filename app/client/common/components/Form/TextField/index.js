@@ -28,6 +28,10 @@ export default class TextFiled extends Component{
     });
   }
 
+  componentDidUpdate(){
+    componentHandler.upgradeElement(this.refs.mdl);
+  }
+
   componentDidMount(){
     componentHandler.upgradeElement(this.refs.mdl);
   }
@@ -37,8 +41,18 @@ export default class TextFiled extends Component{
 <div 
   ref="mdl" 
   style={{width: width == 'auto' || ('' + width).indexOf('%') ? width : width + 'px'}} 
-  className={cx("mdl-textfield mdl-js-textfield mdl-textfield--floating-label", style.text)}>
-  <input className="mdl-textfield__input" name={this.props.name} onChange={::this.changeHandler} type={this.props.type} value={this.state.value} />
+  className={cx({
+    ["mdl-textfield mdl-js-textfield mdl-textfield--floating-label"]: true,
+    [style.text]: true, 
+    ['is-dirty']: !!this.state.value
+  })}>
+  <input 
+    className="mdl-textfield__input" 
+    name={this.props.name} 
+    onChange={::this.changeHandler} 
+    type={this.props.type} 
+    value={this.state.value} 
+  />
   <label className="mdl-textfield__label" htmlFor="sample3">{this.props.label}</label>
 </div>
     );

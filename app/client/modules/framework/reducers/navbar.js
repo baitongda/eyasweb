@@ -6,24 +6,13 @@ const initState = {
   }, {
     title: '博客',
     link: '/blog'
-  }, 
-  // {
-  //   title: 'example',
-  //   link: '/example'
-  // }, 
-   {
-     title: 'Admin',
-     link: '/admin'
-   }, 
-  {
+  }, {
+    title: '管理面板',
+    link: '/admin'
+  }, {
     title: 'Login',
     link: '/auth'
-  }, 
-  // {
-  //   title: '关于我',
-  //   link: '/about'
-  // }
-  ]
+  }]
 };
 if(sessionStorage.getItem('auth')){
   _.remove(initState.data, item => item.link == '/auth');
@@ -40,6 +29,7 @@ export default function navbar(state = initState, action){
           ...action.data
         ]
       };
+    default:
+      return state;
   }
-  return state;
 }

@@ -1,6 +1,13 @@
 import Markdown from 'cc/Markdown';
 import * as actions from '../../actions/edit';
 
+let options = [
+  {label: 'eyas', value: 'eyas'},
+  {label: 'eyas1', value: 'eyas1'},
+  {label: 'eyas2', value: 'eyas2'},
+  {label: 'eyas3', value: 'eyas3'}
+]
+
 @connect(
   state => state.admin.edit,
   dispatch => bindActionCreators(actions, dispatch)
@@ -36,6 +43,7 @@ export default class Edit extends Component{
 
   submitHandler(e){
     const formdata = formToObj(e.target);
+    formdata.categorys = formdata.categorys.split(',')
     if(this.props.data.id){
       formdata['id'] = this.props.data.id;
       this.props.updatePost(formdata);
@@ -52,11 +60,11 @@ export default class Edit extends Component{
         <form onSubmit={::this.submitHandler}>
           <TextField label="标题" name="title" value={data.title} />
           <Select 
-            name="category"
+            name="categorys"
             label="分类" 
             multi 
-            options={[{label: 'eyas', value: 'eyas'}]}
-            value={data.category}
+            options={options}
+            value={data.categorys}
           />
           <Markdown text={data.content} name="content" />
           <button className="mdl-button mdl-js-button mdl-button--raised mdl-button--primary" type="submit">提交</button>
