@@ -15,6 +15,7 @@
     "rc": "1.0.1",
     "sails": "^0.12.1",
     "sails-disk": "~0.10.9",
+    "to-markdown": "^2.0.1",
     "waterline-sqlite3": "^0.12.4"
   },
   "scripts": {

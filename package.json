@@ -8,7 +8,7 @@
     "build": "gulp build",
     "client": "gulp client",
     "server": "gulp server",
-    "dev": "set NODE_ENV=development &&gulp dev",
+    "dev": "gulp dev",
     "deploy": "gulp deploy",
     "start": "NODE_ENV=production gulp server"
   },

@@ -4,6 +4,7 @@
  * @description :: TODO: You might write a short summary of how this model works and what it represents here.
  * @docs        :: http://sailsjs.org/documentation/concepts/models-and-orm/models
  */
+import toMarkdown from 'to-markdown';
 
 module.exports = {
 
@@ -40,7 +41,10 @@ module.exports = {
       collection: 'tags',
       via: 'tag'
     }
-
+  },
+  beforeCreate(val, cb){
+    val.content = toMarkdown(val.content);
+    cb();
   }
 };
 
