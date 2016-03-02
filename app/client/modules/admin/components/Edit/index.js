@@ -6,7 +6,7 @@ let options = [
   {label: 'eyas1', value: 'eyas1'},
   {label: 'eyas2', value: 'eyas2'},
   {label: 'eyas3', value: 'eyas3'}
-]
+];
 
 @connect(
   state => state.admin.edit,
@@ -43,7 +43,7 @@ export default class Edit extends Component{
 
   submitHandler(e){
     const formdata = formToObj(e.target);
-    formdata.categorys = formdata.categorys.split(',')
+    formdata.categorys = formdata.categorys.split(',');
     if(this.props.data.id){
       formdata['id'] = this.props.data.id;
       this.props.updatePost(formdata);

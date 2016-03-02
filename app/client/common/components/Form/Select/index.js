@@ -19,7 +19,7 @@ export default class Select extends Component{
   componentWillReceiveProps(nextProps){
     this.setState({
       value: nextProps.value
-    })
+    });
   }
 
   render(){

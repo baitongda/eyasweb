@@ -23,7 +23,7 @@ export default function auth(state = initState, action){
       return {
         ...state,
         isLogin: action.isLogin
-      }
+      };
     default :
       return state;
   }

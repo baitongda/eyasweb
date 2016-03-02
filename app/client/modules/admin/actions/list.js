@@ -33,6 +33,6 @@ export function checkLogin(){
         type: Constant('auth').CheckLogin,
         isLigon: res.statusCode == 200
       });
-    })
-  }
+    });
+  };
 }
