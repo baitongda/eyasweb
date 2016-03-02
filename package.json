@@ -8,8 +8,9 @@
     "build": "gulp build",
     "client": "gulp client",
     "server": "gulp server",
-    "dev": "gulp dev",
-    "deploy": "gulp deploy"
+    "dev": "set NODE_ENV=development &&gulp dev",
+    "deploy": "gulp deploy",
+    "start": "NODE_ENV=production gulp server"
   },
   "repository": {
     "type": "git",
