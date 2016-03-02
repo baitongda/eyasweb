@@ -23,3 +23,16 @@ export function deletePost(id){
       });
   };
 }
+
+export function checkLogin(){
+  return dispatch => {
+    request.post(config.server + '/auth/check')
+    .end((err, res) => {
+      console.log(res);
+      dispatch({
+        type: Constant('auth').CheckLogin,
+        isLigon: res.statusCode == 200
+      });
+    })
+  }
+}

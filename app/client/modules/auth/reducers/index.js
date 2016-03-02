@@ -19,6 +19,11 @@ export default function auth(state = initState, action){
         ...state,
         message: action.data.message
       };
+    case constant.of('CheckLogin'):
+      return {
+        ...state,
+        isLogin: action.isLogin
+      }
     default :
       return state;
   }

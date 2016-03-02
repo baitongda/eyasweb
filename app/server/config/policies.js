@@ -51,6 +51,7 @@ module.exports.policies = {
   AuthController: {
     login: ['localAuth'],
     logout: ['jwt'],
+    check: ['jwt']
   },
   PostController: restPolicies(),
   TagsController: restPolicies(),

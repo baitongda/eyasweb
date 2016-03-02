@@ -25,6 +25,17 @@ module.exports = {
     //   message: 'waiting'
     // })
   },
+  /**
+   * 检查是否已经登录
+   * @param  {[type]} req [description]
+   * @param  {[type]} res [description]
+   * @return {[type]}     [description]
+   */
+  check(req, res){
+    res.json({
+      isLogin: true
+    })
+  },
   logout(req, res){
     console.log('logout');
     res.json({
