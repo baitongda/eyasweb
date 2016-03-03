@@ -12,6 +12,14 @@ module.exports = {
     res.json({
       message: 'no implesment yet!'
     });
+    Deploy.create({
+      commit: 'test',
+      title: 'test',
+      hook: 'hook',
+      ref: 'test'
+    }).exec((err, result) => {
+      console.log(result);
+    })
   }
 };
 
