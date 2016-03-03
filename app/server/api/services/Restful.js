@@ -18,7 +18,7 @@ module.exports = function Restful(modelID){
     find(req, res){
       const Model = sails.models[modelName];
       // console.log(models, Model);
-      Model.find().populate(models).exec((err, users) => {
+      Model.find({sort: 'updatedAt DESC'}).populate(models).exec((err, users) => {
         if(err){
           return res.badRequest(err);
         }
