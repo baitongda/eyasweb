@@ -49,5 +49,6 @@ module.exports.routes = {
   'POST /api/login': 'AuthController.login',
   'POST /api/logout': 'AuthController.logout',
   '/api/auth/check': 'AuthController.check',
+  '/api/auth/firstUser': 'AuthController.firstUser',
   'GET /api/dict': 'DictController.get',
 };

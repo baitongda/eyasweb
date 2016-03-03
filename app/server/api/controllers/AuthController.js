@@ -41,5 +41,25 @@ module.exports = {
     res.json({
       message: 'logout'
     })
+  },
+  /**
+   * 刚初始化的时候没有用户导致无法登陆，特地加个后门
+   */
+  firstUser(req, res){
+    User.find().exec((err, users) => {
+      if(users.length){
+        res.status(403);
+        res.json({
+          message: "禁止访问!"
+        });
+      } else {
+        User.create(req.body).exec((err, user) => {
+          if(err) return console.log(err);
+          res.json(user);
+
+        })
+      }
+
+    })
   }
 }
