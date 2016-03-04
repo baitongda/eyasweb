@@ -25,4 +25,4 @@ RUN ls -al \
  && chmod 755 /opt/eyasweb/run
 
 EXPOSE 8000
-CMD ['/opt/eyasweb/run']
+ENTRYPOINT /opt/eyasweb/run
