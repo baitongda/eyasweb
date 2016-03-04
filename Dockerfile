@@ -4,6 +4,7 @@ MAINTAINER Eyas<liuyuesongde@163.com>
 
 
 RUN cd /opt \
+ && npm config set registry http://registry.npm.taobao.org/ \
  && git clone https://github.com/eyasliu/eyasweb.git \
  && cd /opt/eyasweb \
  && npm install -g forever gulp \
