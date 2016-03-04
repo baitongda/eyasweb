@@ -2,7 +2,6 @@ FROM node:latest
 
 MAINTAINER Eyas<liuyuesongde@163.com>
 
-ENV NODE_ENV production
 
 RUN cd /opt \
  && git clone https://github.com/eyasliu/eyasweb.git \
@@ -14,11 +13,15 @@ RUN cd /opt \
  && cd /opt/eyasweb/app/client \
  && npm install \
  && cd /opt/eyasweb \
- && mkdir database \
+ && mkdir database 
+
+
+WORKDIR /opt/eyasweb
+ENV NODE_ENV production
+
+RUN ls -al \
  && gulp build \
  && chmod 755 /opt/eyasweb/run
 
 EXPOSE 8000
-
-WORKDIR /opt/eyasweb
 CMD ['/opt/eyasweb/run']
