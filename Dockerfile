@@ -7,7 +7,7 @@ ENV NODE_ENV production
 RUN cd /opt \
  && git clone https://github.com/eyasliu/eyasweb.git \
  && cd /opt/eyasweb \
- && npm insall -g forever gulp \
+ && npm install -g forever gulp \
  && npm install
  && cd /opt/eyasweb/app/server \
  && npm install \
