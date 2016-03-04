@@ -6,7 +6,7 @@ MAINTAINER Eyas<liuyuesongde@163.com>
 RUN cd /opt \
  && git clone https://github.com/eyasliu/eyasweb.git \
  && cd /opt/eyasweb \
- && git branch master && git checkout master \
+# && git branch master && git checkout master && git pull \
  && npm install -g forever gulp \
  && npm install \
  && cd /opt/eyasweb/app/server \
