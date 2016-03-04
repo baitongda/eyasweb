@@ -51,4 +51,5 @@ module.exports.routes = {
   '/api/auth/check': 'AuthController.check',
   '/api/auth/firstUser': 'AuthController.firstUser',
   'GET /api/dict': 'DictController.get',
+  'POST /api/deploy': 'DeployController.deploy',
 };
