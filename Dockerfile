@@ -6,16 +6,16 @@ ENV NODE_ENV production
 
 RUN cd /opt \
  && git clone https://github.com/eyasliu/eyasweb.git \
- && cd ./eyasweb \
+ && cd /opt/eyasweb \
  && npm insall -g forever gulp \
  && npm install
- && cd ./app/server \
+ && cd /opt/eyasweb/app/server \
  && npm install \
- && cd ../client \
+ && cd /opt/eyasweb/app/client \
  && npm install \
- && cd /opt/eyasweb
- && mkdir database
- && gulp build
+ && cd /opt/eyasweb \
+ && mkdir database \
+ && gulp build \
  && chmod 755 /opt/eyasweb/run
 
 EXPOSE 8000
