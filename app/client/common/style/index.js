@@ -7,3 +7,6 @@ import 'material-design-lite/dist/material.css';
 
 import './global.scss';
 
+// content
+import 'github-markdown-css';
+import './content.scss';

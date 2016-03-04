@@ -1,5 +1,6 @@
 import {combineReducers, bindActionCreators, compose} from 'redux';
-import {Link} from 'react-router';
+import marked from './marked';
+import {Link, browserHistory} from 'react-router';
 import {connect} from 'react-redux';
 import request from './request';
 import {PropTypes, Component} from 'react';
@@ -10,7 +11,9 @@ import 'script!material-design-lite';
 import uuid from 'node-uuid';
 
 // 全局工具
-// window.util = require('utils/utily');
+window.util = require('utils/utily')['default'];
+window.config = require('client/config/config');
+window.marked = marked;
 window.combineReducers = combineReducers;
 window.bindActionCreators = bindActionCreators;
 window.compose = compose;
@@ -22,11 +25,14 @@ window._ = _;
 window.formToObj = formToObj;
 window.Constant = Constant;
 window.Link = Link;
-window.uuid = uuid.v4;
+window.uuid = uuid;
+window.History = browserHistory;
 
 // global component
-window.Loding = require('cc/loading/index')['default'];
+window.Loading = require('cc/loading/index')['default'];
 window.Checkbox = require('cc/Form/Checkbox')['default'];
 window.TextField = require('cc/Form/TextField')['default'];
 window.TextArea = require('cc/Form/TextArea')['default'];
 window.Select = require('cc/Form/Select')['default'];
+window.Button = require('cc/Form/Button')['default'];
+window.Card = require('cc/Card')['default'];

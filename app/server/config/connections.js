@@ -21,10 +21,20 @@ import path from 'path';
  */
 module.exports.connections = {
 
+  /**
+   * development
+   */
   sqliteDB: {
     adapter: 'waterline-sqlite3',
     type: 'disk',
-    filename: path.join(__dirname, './database/eyasweb.sqlite'),
+    filename: path.join(__dirname, '../../../database/eyasweb_development.sqlite'),
+    debug: false
+  },
+
+  sqliteProduction: {
+    adapter: 'waterline-sqlite3',
+    type: 'disk',
+    filename: path.join(__dirname, '../../../database/eyasweb_production.sqlite'),
     debug: false
   },
 

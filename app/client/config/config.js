@@ -1,5 +1,5 @@
-export default {
+module.exports = {
   port: 3000,
-  host: '127.0.0.1',
-
+  host: '0.0.0.0',
+  server: 'http://192.168.100.102:8000/api'
 };

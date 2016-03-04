@@ -46,4 +46,10 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
   // 'user': ''
+  'POST /api/login': 'AuthController.login',
+  'POST /api/logout': 'AuthController.logout',
+  '/api/auth/check': 'AuthController.check',
+  '/api/auth/firstUser': 'AuthController.firstUser',
+  'GET /api/dict': 'DictController.get',
+  'POST /api/deploy': 'DeployController.deploy',
 };

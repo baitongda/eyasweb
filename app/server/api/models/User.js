@@ -7,12 +7,6 @@
 
 module.exports = {
   attributes: {
-    // id:{
-    //   type: 'integer',
-    //   unique: true,
-    //   primaryKey: true,
-    //   columnName: 'the_primary_key'
-    // },
     username: {
       type: 'string',
       required: true,

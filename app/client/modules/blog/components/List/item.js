@@ -5,7 +5,7 @@ export default class Item extends Component{
   render(){
     return (
 <div className={style.list}>
-  <ListCard></ListCard>
+  <ListCard {...this.props}></ListCard>
 </div>
     );
   }

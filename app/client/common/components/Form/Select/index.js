@@ -16,6 +16,12 @@ export default class Select extends Component{
     this.props.onChange && this.props.onChange(val);
   }
 
+  componentWillReceiveProps(nextProps){
+    this.setState({
+      value: nextProps.value
+    });
+  }
+
   render(){
     return (
       <ReactSelect 

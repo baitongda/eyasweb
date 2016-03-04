@@ -9,7 +9,8 @@
     "client": "gulp client",
     "server": "gulp server",
     "dev": "gulp dev",
-    "deploy": "gulp deploy"
+    "deploy": "gulp deploy",
+    "start": "NODE_ENV=production gulp server"
   },
   "repository": {
     "type": "git",
@@ -20,7 +21,11 @@
   ],
   "author": "Eyas",
   "license": "ISC",
-  "dependencies": {},
+  "dependencies": {
+    "babel-core": "^6.6.4",
+    "babel-loader": "^6.2.4",
+    "url-loader": "^0.5.7"
+  },
   "devDependencies": {
     "autoprefixer-loader": "^3.2.0",
     "babel-core": "^6.5.2",

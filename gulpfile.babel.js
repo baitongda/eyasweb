@@ -18,6 +18,13 @@ import {Monitor} from 'forever-monitor';
 
 const $ = require('gulp-load-plugins')();
 
+/**
+ * 同时启动前后端服务
+ */
+gulp.task('dev', ['server', 'client']);
+
+
+
 gulp.task('deploy', () => {
   const child = new Monitor('./app/server/app.js', {
     max: 3,
@@ -34,11 +41,13 @@ gulp.task('server', () => {
   const backendServer = nodemon({
     script: './app/server/app.js',
     ignore: [
-      "./**/*"
-    ]
+      "/**/*"
+    ],
+    watch: []
   });
 
-  gulp.watch(['./app/server/**/*.js', '!./app/server/node_modules/**/*'], () => {
+  gulp.watch(['./app/server/**/*.js', '!./app/server/node_modules/**/*', '!app/client/**/*'], () => {
+    console.log('gulp restart server');
     backendServer.restart();
   });
 });
@@ -77,7 +86,7 @@ gulp.task('clean', () => {
 // build
 gulp.task('build', ['clean'], ()=>{
   process.env.NODE_ENV = 'production';
-  console.log(process.env);
+  console.log('正在编译，请耐心等候......');
   const compiler = webpack(webpackProConfig, (err, stats) => {
     if(err){
       console.error(err);

@@ -15,7 +15,7 @@
  * For more information on configuring policies, check out:
  * http://sailsjs.org/#!/documentation/reference/sails.config/sails.config.policies.html
  */
-
+import _ from 'lodash';
 
 module.exports.policies = {
 
@@ -48,4 +48,25 @@ module.exports.policies = {
 		// before letting any users feed our rabbits
 		// feed : ['isNiceToAnimals', 'hasRabbitFood']
 	// }
+  AuthController: {
+    login: ['localAuth'],
+    logout: ['jwt'],
+    check: ['jwt']
+  },
+  PostController: restPolicies(),
+  TagsController: restPolicies(),
+  UserController: restPolicies(['find', 'findOne','create', 'update', 'destroy'])
 };
+
+/**
+ * restful 控制器的policies规则生成器
+ * @param  {array}  methodName 要引用登陆的控制器
+ * @return {object}            该文件可用的规则列表
+ */
+function restPolicies(methodName = ['create', 'update', 'destroy']){
+  const policies = {};
+  _.each(methodName, name => {
+    policies[name] = ['JWT'];
+  })
+  return policies;
+}
