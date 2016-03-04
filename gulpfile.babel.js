@@ -86,7 +86,7 @@ gulp.task('clean', () => {
 // build
 gulp.task('build', ['clean'], ()=>{
   process.env.NODE_ENV = 'production';
-  console.log(process.env);
+  console.log('正在编译，请耐心等候......');
   const compiler = webpack(webpackProConfig, (err, stats) => {
     if(err){
       console.error(err);
