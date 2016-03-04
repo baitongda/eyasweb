@@ -15,10 +15,10 @@ module.exports = {
     Deploy.create({
       commit: 'test',
       title: 'test',
-      hook: 'hook',
+      hook: JSON.stringify(hook),
       ref: 'test'
     }).exec((err, result) => {
-      console.log(result);
+      res.json(result);
     })
   }
 };
