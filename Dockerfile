@@ -13,8 +13,8 @@ RUN cd /opt \
  && npm install \
  && cd /opt/eyasweb/app/client \
  && npm install \
- && cd /opt/eyasweb \
- && mkdir database 
+# && cd /opt/eyasweb \
+# && mkdir database 
 
 
 WORKDIR /opt/eyasweb
