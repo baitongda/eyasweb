@@ -12,7 +12,7 @@ RUN cd /opt \
  && cd /opt/eyasweb/app/server \
  && npm install \
  && cd /opt/eyasweb/app/client \
- && npm install \
+ && npm install
 # && cd /opt/eyasweb \
 # && mkdir database 
 
