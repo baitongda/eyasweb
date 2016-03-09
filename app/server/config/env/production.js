@@ -18,7 +18,7 @@ module.exports = {
    ***************************************************************************/
 
   models: {
-    connection: 'sqliteProduction',
+    connection: 'aliyunMysqlServer',
     migrate: 'safe'
   },
 

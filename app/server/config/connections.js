@@ -65,6 +65,14 @@ module.exports.connections = {
     database: 'YOUR_MYSQL_DB'
   },
 
+  aliyunMysqlServer: {
+    adapter: 'sails-mysql',
+    host: 'rdsrfnrzemz7rye.mysql.rds.aliyuncs.com',
+    user: 'eyas',
+    password: 'eyas123',
+    database: 'r5u7mbpox9jim3dt'
+  },
+
   /***************************************************************************
   *                                                                          *
   * MongoDB is the leading NoSQL database.                                   *

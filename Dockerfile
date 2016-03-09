@@ -5,16 +5,16 @@ MAINTAINER Eyas<liuyuesongde@163.com>
 
 RUN cd /opt \
  && git clone https://github.com/eyasliu/eyasweb.git \
+# && git branch master && git checkout master \
  && cd /opt/eyasweb \
-# && git branch master && git checkout master && git pull \
  && npm install -g forever gulp \
  && npm install \
  && cd /opt/eyasweb/app/server \
  && npm install \
  && cd /opt/eyasweb/app/client \
- && npm install \
- && cd /opt/eyasweb \
- && mkdir database 
+ && npm install
+# && cd /opt/eyasweb \
+# && mkdir database 
 
 
 WORKDIR /opt/eyasweb
@@ -25,4 +25,4 @@ RUN ls -al \
  && chmod 755 /opt/eyasweb/run
 
 EXPOSE 8000
-CMD ['/opt/eyasweb/run']
+ENTRYPOINT /opt/eyasweb/run

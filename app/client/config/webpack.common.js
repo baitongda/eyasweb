@@ -4,7 +4,7 @@ import path from 'path';
 const commonConfig = {
   resolve: {
     // root: path.join(__dirname, 'bower_components'),
-    extensions: ['', '.js', '.jsx', '.css', '.scss'],
+    extensions: ['', '.js', '.json', '.jsx', '.css', '.scss'],
     alias: {
       client: path.join(__dirname, '../'),
       common: path.join(__dirname, '../common'),
@@ -33,6 +33,9 @@ const commonConfig = {
     ],
     loaders: [
       {
+        test: /\.json$/,
+        loader: 'json'
+      }, {
         test: /\.css$/,
         loader: 'style-loader!css-loader?modules&importLoaders=2&localIdentName=[local]!autoprefixer-loader'
       }, {
