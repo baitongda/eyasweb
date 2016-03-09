@@ -18,7 +18,7 @@ module.exports = {
    ***************************************************************************/
 
   models: {
-    connection: 'DaoMongodbServer',
+    connection: 'sqliteProduction',
     migrate: 'safe'
   },
 
