@@ -89,6 +89,14 @@ module.exports.connections = {
     // password: 'password',
     // database: 'your_mongo_db_name_here'
   },
+  DaoMongodbServer: {
+    adapter: 'sails-mongo',
+    host: '10.10.72.139',
+    port: 27017,
+    user: 'uW15ru82i6ARvgXf',
+    password: 'pjyDqX42PH7GVibe1',
+    database: 'PQ7nviOBTyJHA6zk'
+  },
 
   /***************************************************************************
   *                                                                          *
