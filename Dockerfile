@@ -18,7 +18,7 @@ RUN cd /opt \
 
 
 WORKDIR /opt/eyasweb
-ENV NODE_ENV development
+ENV NODE_ENV production
 
 RUN ls -al \
  && gulp build \
