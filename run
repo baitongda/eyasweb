@@ -4,6 +4,6 @@ APP="/opt/eyasweb"
 SCRIPT="$APP/app/server/app.js"
 PID="/var/run/eyasweb.pid"
 LOG="$APP/log/eyasweb.log"
-NODE_ENV="production"
+
 
 forever -p $APP --pidFile $PID -l $LOG -a -d $SCRIPT
