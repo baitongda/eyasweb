@@ -18,15 +18,15 @@ module.exports = {
    ***************************************************************************/
 
   models: {
-    connection: 'sqliteProduction',
-    migrate: 'safe'
+    connection: 'aliyunMysqlServer',
+    // migrate: 'safe'
   },
 
   /***************************************************************************
    * Set the port in the production environment to 80                        *
    ***************************************************************************/
 
-  port: 8000,
+  // port: 8000,
 
   /***************************************************************************
    * Set the log level in production environment to "silent"                 *

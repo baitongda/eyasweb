@@ -6,4 +6,4 @@ PID="/var/run/eyasweb.pid"
 LOG="$APP/log/eyasweb.log"
 
 
-NODE_ENV=development forever -p $APP --pidFile $PID -l $LOG -a -d $SCRIPT
+NODE_ENV=production forever -p $APP --pidFile $PID -l $LOG -a -d $SCRIPT
