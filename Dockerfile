@@ -11,18 +11,14 @@ RUN cd /opt \
 # && npm install -g forever \
  && npm install \
  && cd /opt/eyasweb/app/server \
- && npm install 
+ && npm install \
 # && cd /opt/eyasweb/app/client \
 # && npm install
 # && cd /opt/eyasweb \
 # && mkdir database 
-
-
-WORKDIR /opt/eyasweb
-
-RUN ls -al \
- && gulp build \
  && chmod 755 /opt/eyasweb/run
 
+
 EXPOSE 8000
+
 ENTRYPOINT /opt/eyasweb/run
