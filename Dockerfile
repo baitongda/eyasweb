@@ -7,7 +7,6 @@ RUN cd /opt \
  && git clone https://github.com/eyasliu/eyasweb.git \
 # && git branch master && git checkout master \
  && cd /opt/eyasweb \
- && npm i -g npm \
  && npm install -g forever gulp \
  && npm install \
  && cd /opt/eyasweb/app/server \
