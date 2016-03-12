@@ -17,13 +17,49 @@ module.exports = function Restful(modelID){
      */
     find(req, res){
       const Model = sails.models[modelName];
+
+      /**
+       * 分页配置
+       * @type {number} pageSize 每页的数量
+       * @type {number} paged 第几页
+       * 
+       */
+      // console.log(req.query);
+      req.query = req.query || {};
+      req.query.paged = req.query.paged || 1;
+      const pagOption = {
+        pageSize: 10,
+        paged: 1,
+        ...req.query,
+      }
       // console.log(models, Model);
-      Model.find({sort: 'updatedAt DESC'}).populate(models).exec((err, users) => {
-        if(err){
-          return res.badRequest(err);
-        }
-        return res.json(users);
+      // 
+      async.parallel({
+        count: cb => Model.count().exec(cb),
+        list: cb => Model.find({
+            sort: 'updatedAt DESC',
+            skip: pagOption.pageSize * (pagOption.paged - 1),
+            limit: pagOption.pageSize
+          }).populate(models).exec(cb)
+      }, (err, result) => {
+        // dict['Tags'] = result.tags;
+        // dict['TagsMap'] = generateTree(_.map(dict['Tags'], item => ({[item.name]: item.displayName})));
+
+        // dict['User'] = result.user;
+        // dict['UserMap'] = generateTree(_.map(dict['User'], item => ({['' + item.id]: item.username})));
+
+        // res.jsonx(dict);
+        const {count, list} = result;
+
+        return res.jsonx({
+          ...pagOption,
+          itemCount: count,
+          pageCount: Math.ceil(count / pagOption.pageSize),
+          value: list
+        });
       });
+
+
     },
     /**
      * 详情查询，应用路由 GET /foo/:id

@@ -13,7 +13,7 @@ import uuid from 'node-uuid';
 // 配置
 
 if(process.env.NODE_ENV == 'production'){
-  config.server = window.location.protocol + '//' + window.location.host + '/api'
+  config.server = window.location.protocol + '//' + window.location.host + '/api';
 }
 
 // 全局工具
@@ -42,3 +42,4 @@ window.TextArea = require('cc/Form/TextArea')['default'];
 window.Select = require('cc/Form/Select')['default'];
 window.Button = require('cc/Form/Button')['default'];
 window.Card = require('cc/Card')['default'];
+window.PageNav = require('cc/PageNav')['default'];

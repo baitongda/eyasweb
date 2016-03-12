@@ -1,7 +1,8 @@
 
 const constant = Constant('bloglist');
 const init = {
-  data: []
+  
+  value: []
 };
 
 export default function list(state = init, action){
@@ -9,7 +10,11 @@ export default function list(state = init, action){
     case constant.of('GetList'):
       return {
         ...state,
-        data: action.data
+        ...action.data,
+        value: [
+          // ...state.value,
+          ...action.data.value
+        ]
       };
     default:
       return state;
