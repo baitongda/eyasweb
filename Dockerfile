@@ -11,7 +11,7 @@ RUN cd /opt \
 # && npm install -g forever \
  && npm install \
  && cd /opt/eyasweb/app/server \
- && npm install \
+ && npm install 
 # && cd /opt/eyasweb/app/client \
 # && npm install
 # && cd /opt/eyasweb \
