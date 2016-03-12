@@ -19,14 +19,14 @@ module.exports = {
 
   models: {
     connection: 'aliyunMysqlServer',
-    // migrate: 'safe'
+    migrate: 'alter'
   },
 
   /***************************************************************************
    * Set the port in the production environment to 80                        *
    ***************************************************************************/
 
-  // port: 8000,
+  // port: process.env.NODE_PORT || 8000,
 
   /***************************************************************************
    * Set the log level in production environment to "silent"                 *

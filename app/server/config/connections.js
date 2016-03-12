@@ -57,20 +57,24 @@ module.exports.connections = {
   * Run: npm install sails-mysql                                             *
   *                                                                          *
   ***************************************************************************/
-  someMysqlServer: {
+  localMysql: {
     adapter: 'sails-mysql',
-    host: 'YOUR_MYSQL_SERVER_HOSTNAME_OR_IP_ADDRESS',
-    user: 'YOUR_MYSQL_USER',
-    password: 'YOUR_MYSQL_PASSWORD',
-    database: 'YOUR_MYSQL_DB'
+    host: 'localhost',
+    user: 'root',
+    password: '',
+    database: 'eyasweb',
+    charset   : 'utf8',
+    collation : 'utf8_general_ci'
   },
 
   aliyunMysqlServer: {
     adapter: 'sails-mysql',
-    host: 'rdsrfnrzemz7rye.mysql.rds.aliyuncs.com',
-    user: 'eyas',
-    password: 'eyas123',
-    database: 'r5u7mbpox9jim3dt'
+    host: process.env.ALIYUN_DB_HOST,
+    user: process.env.ALIYUN_DB_USERNAME,
+    password: process.env.ALIYUN_DB_PASSWORD,
+    database: process.env.ALIYUN_DB_DBNAME,
+    charset   : 'utf8',
+    collation : 'utf8_general_ci'
   },
 
   /***************************************************************************
