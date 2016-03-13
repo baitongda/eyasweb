@@ -2,9 +2,8 @@
 // Generated on Sun Mar 13 2016 17:31:47 GMT+0800 (中国标准时间)
 require('babel-core/register');
 // import webpackConfig from './app/client/config/webpack.dev';
-var webpackConfig = require('./app/client/config/webpack.dev');
-delete webpackConfig.entry
-delete webpackConfig.plugins;
+var webpack = require('webpack');
+var webpackConfig = require('./app/client/config/webpack.test');
 
 module.exports = function(config) {
   config.set({
@@ -20,12 +19,15 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      './app/client/**/*.spec.js'
+      'tests.webpack.js'
     ],
 
 
     // list of files to exclude
     exclude: [
+      './node_modules',
+      './app/server',
+      './app/client/node_modules'
     ],
 
 
@@ -33,18 +35,10 @@ module.exports = function(config) {
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
       // add webpack as preprocessor
-      'src/**/*.js': ['webpack', 'sourcemap'],
-      'test/**/*.js': ['webpack', 'sourcemap']
+      // '**/*.js': ['webpack', 'sourcemap'],
+      'tests.webpack.js': ['webpack', 'sourcemap']
     },
-    webpack: Object.assign(
-      webpackConfig,
-      {
-        externals: {
-          'react/lib/ExecutionEnvironment': true,
-          'react/lib/ReactContext': true
-        }
-      }
-    ),
+    webpack: webpackConfig,
     webpackServer: {
       noInfo: true //please don't spam the console when running in karma!
     },
