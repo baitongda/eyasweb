@@ -25,9 +25,8 @@ module.exports = function(config) {
 
     // list of files to exclude
     exclude: [
-      './node_modules',
-      './app/server',
-      './app/client/node_modules'
+      '**/node_modules/**/*',
+      './app/server'
     ],
 
 
