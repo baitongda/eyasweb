@@ -9,7 +9,7 @@ var Loading = require('loading');
 describe('Loading component', function() {
   it('contains' function() {
     expect(shallow(<Loading />).contains(
-      "<div className='style.loader'>\
+      "<div>\
         <div className='loader'>\
           <div className='loader-inner line-scale-pulse-out'>\
             <div></div><div></div><div></div>\

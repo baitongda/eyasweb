@@ -25,23 +25,13 @@ const commonConfig = {
     'react/lib/ReactContext': true
   },
   module: {
-    noParse: [
-      path.join(__dirname, "../node_modules", "codemirror/mode/rpm/changes/index.html"),
-      path.join(__dirname, "../node_modules", "emmet-codemirror/dist"),
-      path.join(__dirname, "../node_modules", "to-markdown/dist/to-markdown.js")
-    ],
     loaders: [
       {
         test: /\.(js|jsx)$/,
-        loaders: ['babel'],
-        include: [path.join(__dirname, '../'), path.join(__dirname, 'config')],
-        exclude: [path.join(__dirname, '../node_modules'), path.join(__dirname, '../vendor')]
+        loaders: ['babel']
       }, {
         test: /\.json$/,
         loader: 'json'
-      }, {
-        test: /\.css$/,
-        loader: 'style-loader!css-loader?modules&importLoaders=2&localIdentName=[local]!autoprefixer-loader'
       }
     ]
   }
