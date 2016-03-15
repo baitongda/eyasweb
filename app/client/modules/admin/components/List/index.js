@@ -1,10 +1,10 @@
 import style from './style';
 import Item from './item';
-import {getList} from '../../actions/list';
+import {getList, changePage} from '../../actions/list';
 
 @connect(
   state => state.admin.list,
-  dispatch => bindActionCreators({getList}, dispatch)
+  dispatch => bindActionCreators({getList, changePage}, dispatch)
 )
 export default class List extends Component{
   constructor(props){
@@ -13,7 +13,7 @@ export default class List extends Component{
   }
 
   render(){
-    const {data} = this.props;
+    const {value: data} = this.props;
     return (
       <div>
         <Link className="mdl-button mdl-js-button mdl-button--raised mdl-button--primary" to="/admin/new">新建文章</Link>
@@ -33,6 +33,7 @@ export default class List extends Component{
             </tbody>
           </table>
         }
+        {data.length ? <PageNav {...this.props} onChange={this.props.changePage}></PageNav> : ''}
       </div>
     );
   }

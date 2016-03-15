@@ -34,6 +34,7 @@ module.exports.http = {
   ***************************************************************************/
 
     order: [
+      'compress',
       'startRequestTimer',
       'cookieParser',
       'session',
@@ -42,7 +43,6 @@ module.exports.http = {
       'myRequestLogger',
       'bodyParser',
       'handleBodyParserError',
-      'compress',
       'methodOverride',
       'poweredBy',
       '$custom',

@@ -1,0 +1,14 @@
+.pagenav{
+  ul{
+    list-style-type: none;
+    text-align: center;
+    li{
+      list-style-type: none;
+      display: inline-block;
+      margin:5px 5px;
+      button{
+        color: #555;
+      }
+    }
+  }
+}

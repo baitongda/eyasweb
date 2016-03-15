@@ -4,6 +4,7 @@
 
 a{
   color: #4078c0;
+  text-decoration: none;
 }
 .app-container{
 
@@ -19,4 +20,11 @@ a{
 }
 .ace_content,.ace_text{
   font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
+}
+.mdl-layout__header{
+  display: block;
+}
+.mdl-card__title-text{
+  font-family: 'microsoft yahei';
+  
 }

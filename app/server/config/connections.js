@@ -57,12 +57,24 @@ module.exports.connections = {
   * Run: npm install sails-mysql                                             *
   *                                                                          *
   ***************************************************************************/
-  someMysqlServer: {
+  localMysql: {
     adapter: 'sails-mysql',
-    host: 'YOUR_MYSQL_SERVER_HOSTNAME_OR_IP_ADDRESS',
-    user: 'YOUR_MYSQL_USER',
-    password: 'YOUR_MYSQL_PASSWORD',
-    database: 'YOUR_MYSQL_DB'
+    host: 'localhost',
+    user: 'root',
+    password: '',
+    database: 'eyasweb',
+    charset   : 'utf8',
+    collation : 'utf8_general_ci'
+  },
+
+  aliyunMysqlServer: {
+    adapter: 'sails-mysql',
+    host: process.env.ALIYUN_DB_HOST,
+    user: process.env.ALIYUN_DB_USERNAME,
+    password: process.env.ALIYUN_DB_PASSWORD,
+    database: process.env.ALIYUN_DB_DBNAME,
+    charset   : 'utf8',
+    collation : 'utf8_general_ci'
   },
 
   /***************************************************************************
@@ -80,6 +92,14 @@ module.exports.connections = {
     // user: 'username',
     // password: 'password',
     // database: 'your_mongo_db_name_here'
+  },
+  DaoMongodbServer: {
+    adapter: 'sails-mongo',
+    host: '10.10.72.139',
+    port: 27017,
+    user: 'uW15ru82i6ARvgXf',
+    password: 'pjyDqX42PH7GVibe1',
+    database: 'PQ7nviOBTyJHA6zk'
   },
 
   /***************************************************************************
