@@ -21,6 +21,7 @@ export function newPost(data){
         type: constant.NewPost,
         data
       });
+      History.push('/admin');
     });
   };
 }

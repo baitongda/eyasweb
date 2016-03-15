@@ -20,6 +20,7 @@ export function login(formdata){
             data: navbar.data
           });
           // 登录成功
+          request.reloadJwt()
           dispatch({
             type: constant.Login,
             data
