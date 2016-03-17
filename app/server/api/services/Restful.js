@@ -10,7 +10,12 @@
 module.exports = function Restful(modelID){
   const modelName = modelID.toLocaleLowerCase();
   if(!sails.models[modelName]) throw new Error('No the modelID');
-  const models = getModel(sails.models[modelName].attributes);
+
+  const findHasAttr = findAttrs(sails.models[modelName].attributes);
+
+  const models = findHasAttr('model');
+  const collects = findHasAttr('collection');
+
   return {
     /**
      * 列表查询，应用路由 GET /foo
@@ -37,25 +42,18 @@ module.exports = function Restful(modelID){
       async.parallel({
         count: cb => Model.count().exec(cb),
         list: cb => Model.find({
-            sort: 'updatedAt DESC',
+            // sort: 'updatedAt DESC',
             skip: pagOption.pageSize * (pagOption.paged - 1),
             limit: pagOption.pageSize
-          }).populate(models).exec(cb)
+          }).populateAll().exec(cb)
       }, (err, result) => {
-        // dict['Tags'] = result.tags;
-        // dict['TagsMap'] = generateTree(_.map(dict['Tags'], item => ({[item.name]: item.displayName})));
-
-        // dict['User'] = result.user;
-        // dict['UserMap'] = generateTree(_.map(dict['User'], item => ({['' + item.id]: item.username})));
-
-        // res.jsonx(dict);
-        const {count, list} = result;
-
+        let {count, list} = result;
+        list = _.sortBy(list, item => -(new Date(item.updatedAt)).getTime())
         return res.jsonx({
           ...pagOption,
           itemCount: count,
           pageCount: Math.ceil(count / pagOption.pageSize),
-          value: list
+          value: list || []
         });
       });
 
@@ -71,6 +69,12 @@ module.exports = function Restful(modelID){
         if(err){
           return res.badRequest(err);
         }
+        user.tags.add([1,2,3]);
+        // Tags.findOne(1).exec((err, tag) => {
+        //   tag.post.add(user.id);
+        //   tag.save(err => {})
+        // })
+        // user.save(err => {});
         return res.json(user);
       }) : res.badRequest({message: 'must have id param'});
     },
@@ -80,7 +84,15 @@ module.exports = function Restful(modelID){
     create(req, res){
       const Model = sails.models[modelName];
       Model.create({...req.body}).exec((err, user) => {
-        if(err)return res.badRequest(err);
+        if(err) return res.badRequest(err);
+
+        _.each(collects, col => {
+          if(!user[col] && !req.body[col]){
+            return;
+          }
+          user[col].add(req.body[col]);
+          user.save(err => {});
+        })
         return res.json(user);
       })
     },
@@ -119,15 +131,18 @@ module.exports = function Restful(modelID){
 
 
 /**
- * 根据model的attributes获取有哪些字段是应用到了联表查询
- * @param  {object} attrs model的attributes
+ * 查找在attribute的字段配置中包含该字段配置项的集合
+ * @param {obj} attrs attribute的配置
+ * @param  {string} field 要查找的配置名
  * @return {array}       应用了联表查询的字段集合
  */
-function getModel(attrs){
-  var models = [];
-  _.each(attrs, (field, key) => {
-    field['model'] && models.push(key);
-  });
-  return models;
+function findAttrs(attrs){
+  return field => {
+    var models = [];
+    _.each(attrs, (column, key) => {
+      column[field] && models.push(key);
+    });
+    return models;
+  }
 }
 

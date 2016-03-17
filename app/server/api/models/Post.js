@@ -39,7 +39,8 @@ module.exports = {
     },
     tags: {
       collection: 'tags',
-      via: 'tag'
+      via: 'post',
+      dominant: true
     }
   },
   beforeCreate(val, cb){

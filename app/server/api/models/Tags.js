@@ -20,8 +20,9 @@ module.exports = {
     displayName: {
       type: 'string'
     },
-    tag: {
-      model: 'post'
+    post: {
+      collection: 'post',
+      via: 'tags'
     }
   },
   beforeCreate(values, cb){
