@@ -7,8 +7,30 @@
 
 module.exports = {
 
+  autoCreatedAt: false,
+  autoUpdatedAt: false,
   attributes: {
-
+    name: {
+      type: 'string',
+      required: true,
+      unique: true
+    },
+    slug: {
+      type: 'string'
+    },
+    displayName: {
+      type: 'string'
+    },
+    post: {
+      collection: 'post',
+      via: 'categorys'
+    }
+  },
+  beforeCreate(values, cb){
+    if(!values.name) throw new Error('category name required!');
+    values.slug = values.slug || values.name;
+    values.displayName = values.displayName || values.name;
+    cb();
   }
 };
 

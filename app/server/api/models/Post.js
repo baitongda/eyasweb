@@ -34,14 +34,20 @@ module.exports = {
       defaultsTo: ''
     },
     categorys: {
-      type: 'array',
-      defaultsTo: []
+      collection: 'category',
+      via: 'post',
+      dominant: true
     },
     tags: {
       collection: 'tags',
       via: 'post',
       dominant: true
-    }
+    },
+    categorys: {
+      collection: 'category',
+      via: 'post',
+      dominant: true
+    },
   },
   beforeCreate(val, cb){
     val.content = toMarkdown(val.content);

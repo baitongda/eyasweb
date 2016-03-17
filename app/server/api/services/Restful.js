@@ -65,7 +65,7 @@ module.exports = function Restful(modelID){
     findOne(req, res){
       const Model = sails.models[modelName];
       const id = req.param('id');
-      id ? Model.findOne({id}).populate(models).exec((err, user) => {
+      id ? Model.findOne({id}).populateAll().exec((err, user) => {
         if(err){
           return res.badRequest(err);
         }

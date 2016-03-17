@@ -58,8 +58,18 @@ export default class Edit extends Component{
         <form onSubmit={::this.submitHandler}>
           <TextField label="标题" name="title" value={data.title} />
           <Select 
-            name="tags"
+            name="category"
             label="分类" 
+            multi 
+            options={_.map(dict.Categorys, item => ({
+              label: item.displayName,
+              value: item.id
+            }))}
+            value={data.categorys}
+          />
+          <Select 
+            name="tags"
+            label="标签" 
             multi 
             options={_.map(dict.Tags, item => ({
               label: item.displayName,
