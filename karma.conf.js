@@ -2,8 +2,8 @@
 // Generated on Sun Mar 13 2016 17:31:47 GMT+0800 (中国标准时间)
 require('babel-core/register');
 // import webpackConfig from './app/client/config/webpack.dev';
-let webpack = require('webpack');
-let webpackConfig = require('./app/client/config/webpack.test')['default'];
+var webpack = require('webpack');
+var webpackConfig = require('./app/client/config/webpack.test')['default'];
 
 module.exports = function(config) {
   config.set({
@@ -34,8 +34,8 @@ module.exports = function(config) {
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
       // add webpack as preprocessor
-      // './app/client/**/*.spec.js': ['webpack', 'sourcemap'],
-      './app/client/**/*.spec.js': ['webpack', 'sourcemap']
+      // './app/client/**/*.js': ['coverage'],
+      './app/client/**/*.spec.js': ['webpack', 'sourcemap', 'coverage']
     },
     webpack: webpackConfig,
     webpackMiddleware: {
@@ -47,6 +47,7 @@ module.exports = function(config) {
       'karma-mocha',
       'karma-sourcemap-loader',
       'karma-chrome-launcher',
+      'karma-coverage'
       // 'karma-chai'
       // 'karma-phantomjs-launcher'
     ], 
@@ -60,8 +61,11 @@ module.exports = function(config) {
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['dots'],
-
+    reporters: ['progress', 'coverage'],
+    coverageReporter: {
+      type : 'html',
+      dir : 'coverage/'
+    },
 
     // web server port
     port: 9876,
