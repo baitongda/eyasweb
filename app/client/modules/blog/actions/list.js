@@ -14,7 +14,7 @@ export function getList(){
 
 export function changePage(paged){
   return (dispatch, getState) => {
-    var list = _.get(getState(), 'blog.list');
+    let list = _.get(getState(), 'blog.list');
     request.get(config.server + '/post')
       .query({
         paged: paged,
@@ -24,7 +24,7 @@ export function changePage(paged){
         dispatch({
           type: constant.GetList,
           data: res.body
-        })
-      })
-  }
+        });
+      });
+  };
 }

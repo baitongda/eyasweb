@@ -46,7 +46,11 @@ gulp.task('server', () => {
     watch: []
   });
 
-  gulp.watch(['./app/server/**/*.js', '!./app/server/node_modules/**/*', '!app/client/**/*'], () => {
+  gulp.watch([
+    './app/server/**/*.js', 
+    '!./app/server/node_modules/**/*', 
+    '!app/client/**/*'
+  ], () => {
     console.log('gulp restart server');
     backendServer.restart();
   });
@@ -103,7 +107,14 @@ gulp.task('build', ['clean'], ()=>{
 
 // console.log(notifier);
 gulp.task('lint', () => {
-  return gulp.src(['./*.js', 'app/client/**/*.js', 'app/client/**/*.jsx', '!app/client/vendor/**/*', '!app/**/node_modules/**/*'])
+  return gulp.src([
+    './*.js', 
+    'app/client/**/*.js', 
+    'app/client/**/*.jsx', 
+    '!app/client/vendor/**/*', 
+    '!app/**/node_modules/**/*',
+    '!karma.conf.js'
+  ])
     .pipe($.eslint())
     .pipe($.plumber({
       errorHandler(err) {

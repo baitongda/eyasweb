@@ -2,8 +2,8 @@
 // Generated on Sun Mar 13 2016 17:31:47 GMT+0800 (中国标准时间)
 require('babel-core/register');
 // import webpackConfig from './app/client/config/webpack.dev';
-var webpack = require('webpack');
-var webpackConfig = require('./app/client/config/webpack.test')['default'];
+let webpack = require('webpack');
+let webpackConfig = require('./app/client/config/webpack.test')['default'];
 
 module.exports = function(config) {
   config.set({
@@ -92,5 +92,5 @@ module.exports = function(config) {
     // Concurrency level
     // how many browser should be started simultaneous
     concurrency: Infinity
-  })
-}
+  });
+};

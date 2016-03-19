@@ -26,7 +26,7 @@ export default class PageNav extends Component{
           "mdl-button--colored": this.props.paged == (i + 1)
         })}
         onClick={e => this.changePage(i + 1)}
-      >{i + 1}</button></li>)
+      >{i + 1}</button></li>);
     }
     return (
       <div className={style.pagenav}>

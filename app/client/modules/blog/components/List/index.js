@@ -14,7 +14,7 @@ export default class List extends Component{
 
   componentWillReceiveProps(nextProps){
     if(this.props.paged != nextProps.paged){
-      window.scrollTo(0, 370)
+      window.scrollTo(0, 370);
     }
   }
 
