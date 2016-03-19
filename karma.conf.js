@@ -3,7 +3,7 @@
 require('babel-core/register');
 // import webpackConfig from './app/client/config/webpack.dev';
 var webpack = require('webpack');
-var webpackConfig = require('./app/client/config/webpack.test');
+var webpackConfig = require('./app/client/config/webpack.test')['default'];
 
 module.exports = function(config) {
   config.set({
@@ -19,14 +19,14 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      './app/client/**/*.spec.js'
+      './app/client/**/*.spec.js',
+      // 'tests.webpack.js'
     ],
 
 
     // list of files to exclude
     exclude: [
-      '**/node_modules/**/*',
-      './app/server'
+      './app/client/node_modules/**/*',
     ],
 
 
@@ -34,31 +34,33 @@ module.exports = function(config) {
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
       // add webpack as preprocessor
-      './app/client/**/*.spec.js': ['webpack', 'sourcemap'],
-      // 'tests.webpack.js': ['webpack', 'sourcemap']
+      // './app/client/**/*.spec.js': ['webpack', 'sourcemap'],
+      './app/client/**/*.spec.js': ['webpack', 'sourcemap']
     },
     webpack: webpackConfig,
-    webpackServer: {
-      noInfo: true //please don't spam the console when running in karma!
+    webpackMiddleware: {
+      noInfo: true, //please don't spam the console when running in karma!
+      quiet: true
     },
     plugins: [
       'karma-webpack',
       'karma-mocha',
       'karma-sourcemap-loader',
       'karma-chrome-launcher',
+      // 'karma-chai'
       // 'karma-phantomjs-launcher'
     ], 
-    babelPreprocessor: {
-      options: {
-        presets: ['airbnb']
-      }
-    },
+    // babelPreprocessor: {
+    //   options: {
+    //     presets: ['airbnb']
+    //   }
+    // },
 
 
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['progress'],
+    reporters: ['dots'],
 
 
     // web server port

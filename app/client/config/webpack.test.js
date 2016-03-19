@@ -1,26 +1,13 @@
 import webpack from 'webpack';
 import path from 'path';
+import common from './webpack.common';
 
 const commonConfig = {
-  resolve: {
-    // root: path.join(__dirname, 'bower_components'),
-    extensions: ['', '.js', '.json', '.jsx', '.css', '.scss'],
-    alias: {
-      client: path.join(__dirname, '../'),
-      common: path.join(__dirname, '../common'),
-      cc: path.join(__dirname, '../common/components'),
-      modules: path.join(__dirname, '../modules'),
-      utils: path.join(__dirname, '../utils'),
-      fw: path.join(__dirname, '../modules/framework'),
-      blog: path.join(__dirname, '../modules/blog'),
-      example: path.join(__dirname, '../modules/example'),
-      admin: path.join(__dirname, '../modules/admin'),
-      auth: path.join(__dirname, '../modules/auth'),
-      request: path.join(__dirname, '../utils/request'),
-    }
-  },
+  resolve: common.resolve,
   devtool: 'inline-source-map',
   externals: {
+    'cheerio': 'window',
+    // 'react': 'React',
     'react/lib/ExecutionEnvironment': true,
     'react/lib/ReactContext': true
   },
@@ -28,12 +15,22 @@ const commonConfig = {
     loaders: [
       {
         test: /\.(js|jsx)$/,
-        loaders: ['babel']
+        loaders: ['babel'],
+        include: [path.join(__dirname, '../'), path.join(__dirname, 'config')],
+        exclude: [path.join(__dirname, '../node_modules'), path.join(__dirname, '../vendor')]
       }, {
         test: /\.json$/,
         loader: 'json'
+      }, {
+        test: /\.css$/,
+        loader: 'style-loader!css-loader?modules&importLoaders=2&localIdentName=[local]!autoprefixer-loader'
+      }, {
+        test: /\.(sass|scss)$/,
+        loader: 'style-loader!css-loader?modules&importLoaders=2&localIdentName=[local]___[hash:base64:5]!autoprefixer-loader!sass-loader',
+        exclude: [path.join(__dirname, '../common/style')]
       }
     ]
-  }
+  },
+  plugins: common.plugins
 };
 export default commonConfig;
