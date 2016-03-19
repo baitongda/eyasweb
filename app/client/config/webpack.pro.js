@@ -14,16 +14,7 @@ module.exports = {
   },
   resolve: common.resolve,
   module: {
-    noParse: common.module.noParse,
-    loaders: [
-      ...common.module.loaders,
-      {
-        test: /\.(js|jsx)$/,
-        loaders: ['babel'],
-        include: [path.join(__dirname, '../'), path.join(__dirname, './config')],
-        exclude: [path.join(__dirname, '../node_modules'), path.join(__dirname, '../vendor')]
-      }
-    ]
+    ...common.module
   },
   plugins: [
     ...common.plugins,
