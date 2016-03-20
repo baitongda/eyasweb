@@ -6,6 +6,9 @@ export default {
    * @return {string}        截取后的字符串
    */
   subNoHtml(str = '', number = 200){
-    return str.replace(/<[^>]+>/g, "").substr(0, number);
+    return this.filterHtml(str).substr(0, number);
+  },
+  filterHtml(str){
+    return str.replace(/<[^>]+>/g, "");
   }
 };
