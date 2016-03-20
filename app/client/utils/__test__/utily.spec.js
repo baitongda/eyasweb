@@ -1,5 +1,4 @@
 import util from '../utily';
-import {expect} from 'chai';
 
 describe('Utily function', () => {
   it('subNoHtml', () => {
