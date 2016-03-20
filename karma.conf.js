@@ -35,7 +35,7 @@ module.exports = function(config) {
     preprocessors: {
       // add webpack as preprocessor
       // './app/client/**/*.js': ['coverage'],
-      './app/client/**/*.spec.js': ['webpack', 'sourcemap', 'coverage']
+      './app/client/**/*.spec.js': ['webpack', 'sourcemap']
     },
     webpack: webpackConfig,
     webpackMiddleware: {
@@ -63,8 +63,8 @@ module.exports = function(config) {
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
     reporters: ['progress', 'coverage'],
     coverageReporter: {
-      type : 'html',
-      dir : 'coverage/'
+      type : 'text',
+      // dir : 'coverage/'
     },
 
     // web server port

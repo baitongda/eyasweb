@@ -29,6 +29,14 @@ const commonConfig = {
         loader: 'style-loader!css-loader?modules&importLoaders=2&localIdentName=[local]___[hash:base64:5]!autoprefixer-loader!sass-loader',
         exclude: [path.join(__dirname, '../common/style')]
       }
+    ],
+    preLoaders: [ 
+      { //delays coverage til after tests are run, fixing transpiled source coverage error
+        test: /\.(js|jsx)$/,
+        include: [path.join(__dirname, '../common'),path.join(__dirname, '../modules'),path.join(__dirname, '../utils')],
+        exclude: /\.spec\.js$/,
+        loader: 'isparta' 
+      } 
     ]
   },
   plugins: common.plugins
