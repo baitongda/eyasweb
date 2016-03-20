@@ -1,7 +1,4 @@
-// import React from 'react';
-import {shallow, mount, render} from 'enzyme';
 import Loading from '../index';
-import { expect } from 'chai';
 
 describe('Loading component', () => {
   it('contains', () => {

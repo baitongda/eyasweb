@@ -1,7 +1,7 @@
 import 'loaders.css';
 import style from './style';
 
-export default class Loading extends React.Component {
+export default class Loading extends Component {
   constructor() {
     super();
   }

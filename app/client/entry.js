@@ -1,5 +1,6 @@
 // 全局工具
 import './utils/globals';
+import './utils/golbalComponent';
 
 // 全局样式
 import 'common/style';
