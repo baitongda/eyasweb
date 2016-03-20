@@ -47,9 +47,9 @@ module.exports = function(config) {
       'karma-mocha',
       'karma-sourcemap-loader',
       'karma-chrome-launcher',
-      'karma-coverage'
+      'karma-coverage',
       // 'karma-chai'
-      // 'karma-phantomjs-launcher'
+      'karma-phantomjs-launcher'
     ], 
     // babelPreprocessor: {
     //   options: {
@@ -86,7 +86,10 @@ module.exports = function(config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['Chrome'],
+    browsers: [
+      // 'Chrome',
+      'PhantomJS'
+    ],
 
 
     // Continuous Integration mode
