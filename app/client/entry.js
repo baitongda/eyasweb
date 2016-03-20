@@ -1,6 +1,5 @@
 // 全局工具
 import './utils/globals';
-import './utils/globalComponent';
 
 // 全局样式
 import 'common/style';
