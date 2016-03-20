@@ -14,11 +14,12 @@ module.exports = function(config) {
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: ['mocha'],
+    frameworks: ['mocha', 'chai'],
 
 
     // list of files / patterns to load in the browser
     files: [
+      './app/client/utils/globals.test.js',
       './app/client/**/*.spec.js',
       // 'tests.webpack.js'
     ],
@@ -35,7 +36,8 @@ module.exports = function(config) {
     preprocessors: {
       // add webpack as preprocessor
       // './app/client/**/*.js': ['coverage'],
-      './app/client/**/*.spec.js': ['webpack', 'sourcemap']
+      './app/client/utils/globals.test.js': ['webpack', 'sourcemap'],
+      './app/client/**/*': ['webpack', 'sourcemap']
     },
     webpack: webpackConfig,
     webpackMiddleware: {
@@ -48,7 +50,7 @@ module.exports = function(config) {
       'karma-sourcemap-loader',
       'karma-chrome-launcher',
       'karma-coverage',
-      // 'karma-chai'
+      'karma-chai',
       'karma-phantomjs-launcher'
     ], 
     // babelPreprocessor: {

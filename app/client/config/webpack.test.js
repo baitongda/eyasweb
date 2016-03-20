@@ -33,7 +33,7 @@ const commonConfig = {
     preLoaders: [ 
       { //delays coverage til after tests are run, fixing transpiled source coverage error
         test: /\.(js|jsx)$/,
-        include: [path.join(__dirname, '../common'),path.join(__dirname, '../modules'),path.join(__dirname, '../utils')],
+        include: [path.join(__dirname, '../common'), path.join(__dirname, '../modules'), path.join(__dirname, '../utils')],
         exclude: /\.spec\.js$/,
         loader: 'isparta' 
       } 

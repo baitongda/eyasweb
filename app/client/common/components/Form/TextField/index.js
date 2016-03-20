@@ -17,6 +17,8 @@ export default class TextFiled extends Component{
   }
 
   changeHandler(e){
+    const e = e || {};
+    const target = e.target || this.refs.input;
     this.setState({
       value: e.target.value
     });
@@ -47,6 +49,7 @@ export default class TextFiled extends Component{
     ['is-dirty']: !!this.state.value
   })}>
   <input 
+    ref="input"
     className="mdl-textfield__input" 
     name={this.props.name} 
     onChange={::this.changeHandler} 

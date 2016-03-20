@@ -11,6 +11,9 @@ import 'script!material-design-lite';
 import uuid from 'node-uuid';
 import util from './utily';
 
+import {should} from 'chai';
+
+import {shallow, mount, render} from 'enzyme';
 // 配置
 
 if(process.env.NODE_ENV == 'production'){
@@ -34,4 +37,11 @@ window.Constant = Constant;
 window.Link = Link;
 window.uuid = uuid;
 window.History = browserHistory;
+
+
+
+// global.should = should
+global.shallow = shallow;
+global.mount = mount;
+global.render = render;
 
